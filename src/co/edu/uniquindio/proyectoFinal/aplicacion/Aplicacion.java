@@ -3,7 +3,8 @@ package co.edu.uniquindio.proyectoFinal.aplicacion;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import co.edu.uniquindio.proyectoFinal.controller.LoginController;
+import co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController;
+import co.edu.uniquindio.proyectoFinal.controller.GestionLoginController;
 import co.edu.uniquindio.proyectoFinal.controller.ModelFactoryController;
 import co.edu.uniquindio.proyectoFinal.controller.GestionVendedoresController;
 import co.edu.uniquindio.proyectoFinal.model.TipoUsuario;
@@ -15,9 +16,7 @@ import javafx.stage.Stage;
 
 public class Aplicacion  extends Application {
 	public Stage primaryStage;
-	private ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
-	
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
@@ -26,7 +25,6 @@ public class Aplicacion  extends Application {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Ya pude");
 		launch(args);
 	}
 	
@@ -35,10 +33,10 @@ public class Aplicacion  extends Application {
 		try
 		{
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/LoginView.fxml"));
+			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/GestionLoginView.fxml"));
 			AnchorPane rootLayout = (AnchorPane) loader.load();
 
-			LoginController loginController = loader.getController();
+			GestionLoginController loginController = loader.getController();
 			loginController.setAplicacion(this);
 
 			Scene scene = new Scene(rootLayout);
@@ -54,15 +52,16 @@ public class Aplicacion  extends Application {
 	}
 	
 	public void mostrarVentanaPrincipal(TipoUsuario tipoUsuario, String nombreUsuario) {
+		
 		try {
 
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/AgregarVendedoresView.fxml"));
+			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/GestionGeneralView.fxml"));
 
 			AnchorPane rootLayout = loader.load();
 
-			LoginController loginController = loader.getController();
-			loginController.setAplicacion(this);
+			GestionGeneralController gestionGeneralController = loader.getController();
+			gestionGeneralController.setAplicacion(this);
 
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);

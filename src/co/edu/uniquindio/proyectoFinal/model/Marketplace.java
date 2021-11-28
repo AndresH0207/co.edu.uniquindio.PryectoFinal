@@ -1,51 +1,85 @@
 package co.edu.uniquindio.proyectoFinal.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import co.edu.uniquindio.proyectoFinal.persistencia.Persistencia;
 
-public class Marketplace implements Serializable {
+public class Marketplace {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
 	String codigo;
 	private ArrayList<Vendedor> listaVendedores;
 	private ArrayList<Productos> listaProductos;
 	private Administrador administrador;
 
+	/**
+	 * Constructor de la clase
+	 * 
+	 * @param codigo
+	 */
 	public Marketplace(String codigo) {
-		this.codigo=codigo;
+		this.codigo = codigo;
 		listaVendedores = new ArrayList<Vendedor>();
 		listaProductos = new ArrayList<Productos>();
 		inicializarDatos();
 	}
-	
+
+	/**
+	 * Metodo que me permite obtener el codigo
+	 */
+	public String getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * Metodo que me permite asignar y/o actualizar el codigo de la clase
+	 * 
+	 * @param codigo
+	 */
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	/**
+	 * Metodo que me permite obtener los vendedores
+	 * 
+	 * @return listaVendedores
+	 */
+	public ArrayList<Vendedor> getListaVendedores() {
+		return listaVendedores;
+	}
+
+	/**
+	 * Metodo que me permite asignar y/o actualizar la lista de vendedores
+	 * 
+	 * @param listaVendedores
+	 */
+	public void setListaVendedores(ArrayList<Vendedor> listaVendedores) {
+		this.listaVendedores = listaVendedores;
+	}
+
+	/**
+	 * Metodo que me permite obtener los productos
+	 * 
+	 * @return listaProductos
+	 */
+	public ArrayList<Productos> getListaProductos() {
+		return listaProductos;
+	}
+
+	/**
+	 * Metodo que me permite asignar y/o actualizar la lista de productos
+	 * 
+	 * @param listaProductos
+	 */
+	public void setListaProductos(ArrayList<Productos> listaProductos) {
+		this.listaProductos = listaProductos;
+	}
 
 	/**
 	 * Método que permite inicializar los datos
 	 */
 	private void inicializarDatos() {
-		administrador = (Administrador) Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_MODELO_ADMINISTRADOR_XML);		
-	}
-
-	public ArrayList<Vendedor> getListaVendedores() {
-		return listaVendedores;
-	}
-
-	public void setListaVendedores(ArrayList<Vendedor> listaVendedores) {
-		this.listaVendedores = listaVendedores;
-	}
-
-	public ArrayList<Productos> getListaProductos() {
-		return listaProductos;
-	}
-
-	public void setListaProductos(ArrayList<Productos> listaProductos) {
-		this.listaProductos = listaProductos;
+		administrador = (Administrador) Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_ADMINISTRADOR_XML);
 	}
 
 	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion) {
@@ -104,7 +138,6 @@ public class Marketplace implements Serializable {
 		return null;
 	}
 
-
 	public Productos crearProductos(String nombre, String categoria, double precio, Estado estado) {
 
 		Productos productos = new Productos();
@@ -125,7 +158,8 @@ public class Marketplace implements Serializable {
 
 		switch (tipoUsuario) {
 		case VENDEDOR:
-			vendedor = listaVendedores.stream().filter(x -> x.getUsuario().equals(Nomusuario) && x.getContrasena().equals(contrasenia)).findAny()
+			vendedor = listaVendedores.stream()
+					.filter(x -> x.getUsuario().equals(Nomusuario) && x.getContrasena().equals(contrasenia)).findAny()
 					.orElse(null);
 
 			if (vendedor != null)
@@ -133,7 +167,6 @@ public class Marketplace implements Serializable {
 
 			break;
 		case ADMINISTRADOR:
-			System.out.println("Llegue");
 			if (administrador.getUsuario().equals(Nomusuario) && administrador.getContrasena().equals(contrasenia))
 				usuario = administrador;
 			break;
@@ -143,8 +176,7 @@ public class Marketplace implements Serializable {
 		return usuario;
 	}
 
-	public ArrayList<TipoUsuario> obtenerListaTiposUsuario()
-	{
+	public ArrayList<TipoUsuario> obtenerListaTiposUsuario() {
 		ArrayList<TipoUsuario> lstTipoUsuarios = new ArrayList<TipoUsuario>();
 		lstTipoUsuarios.add(TipoUsuario.ADMINISTRADOR);
 		lstTipoUsuarios.add(TipoUsuario.VENDEDOR);

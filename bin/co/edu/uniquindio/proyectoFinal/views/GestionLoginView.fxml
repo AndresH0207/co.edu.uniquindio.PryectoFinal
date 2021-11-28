@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="498.0" prefWidth="376.0" style="-fx-background-color: linear-gradient(#343FF4, #E98A87);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.LoginController">
+<AnchorPane prefHeight="498.0" prefWidth="376.0" style="-fx-background-color: linear-gradient(#343FF4, #E98A87);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionLoginController">
    <children>
       <Label layoutX="97.0" layoutY="122.0" text="BIENVENIDO" textFill="#f4f0f0">
          <font>

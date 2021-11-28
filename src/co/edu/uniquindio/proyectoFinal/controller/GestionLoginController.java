@@ -19,7 +19,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
-public class LoginController {
+public class GestionLoginController {
 
 	private Aplicacion aplicacion;
 	ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
@@ -69,12 +69,12 @@ public class LoginController {
 		Usuario usuarioObtenido = null;
 
 		usuarioObtenido = modelFactoryController.ingresar(usuario, contrasenia, tipoUsuario);
-		System.out.println("Llegue");
 		if (usuarioObtenido != null) {
 			String nombreUsuario = "";
 			if (usuarioObtenido instanceof Vendedor) {
 				Vendedor vendedor = (Vendedor) usuarioObtenido;
 				nombreUsuario = vendedor.getNombre();
+				
 			} else {
 				Administrador admin = (Administrador) usuarioObtenido;
 				nombreUsuario = admin.getNombre();
@@ -97,22 +97,10 @@ public class LoginController {
 		alert.showAndWait();
 	}
 
-	private boolean tipoUsiario(Vendedor vendedor) {
-
-		if (vendedor.getNombre() == "Admin") {
-			return true;
-		}
-		return false;
-	}
-
-	private boolean validarCampos(String contrasenia) {
-
-		if (contrasenia != null && !contrasenia.equalsIgnoreCase("")) {
-			return true;
-		}
-		return false;
-	}
-
+	/**
+	 * Metodo que pasa la clase principal para realizar la comunicacion
+	 * @param aplicacion
+	 */
 	public void setAplicacion(Aplicacion aplicacion) {
 		this.aplicacion = aplicacion;
 	}
