@@ -1,0 +1,2 @@
+nov. 25, 2021 8:42:39 P. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Crear Vendedor,Vendedor Creado,
