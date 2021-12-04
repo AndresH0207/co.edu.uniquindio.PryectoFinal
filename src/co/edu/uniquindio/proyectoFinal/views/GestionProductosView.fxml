@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.AgregarProductosController">
+   <children>
+      <Label layoutX="244.0" layoutY="14.0" text="AGREGAR PRODUCTOS">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
+      <Separator layoutX="14.0" layoutY="50.0" prefHeight="0.0" prefWidth="746.0" />
+      <TextField fx:id="txtNombreProducto" layoutX="14.0" layoutY="83.0" prefHeight="27.0" prefWidth="496.0" promptText="Nombre del producto" />
+      <TextField fx:id="txtCategoriaProductos" layoutX="14.0" layoutY="127.0" prefHeight="27.0" prefWidth="496.0" promptText="Categoria" />
+      <TextField fx:id="txtPrecioProductos" layoutX="14.0" layoutY="172.0" prefHeight="27.0" prefWidth="496.0" promptText="Precio" />
+      <Label layoutX="14.0" layoutY="223.0" text="Estado:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboEstadoProducto" layoutX="83.0" layoutY="220.0" prefHeight="27.0" prefWidth="426.0" />
+      <Separator layoutX="14.0" layoutY="311.0" prefHeight="0.0" prefWidth="746.0" />
+      <Button fx:id="btnAgregarProducto" layoutX="38.0" layoutY="269.0" mnemonicParsing="false" onAction="#AgregarProductoAction" text="Agregar" />
+      <Button fx:id="btnActualizarProducto" layoutX="244.0" layoutY="269.0" mnemonicParsing="false" onAction="#ActualizarProductoAction" text="Actualizar" />
+      <Button fx:id="btnEliminarProducto" layoutX="438.0" layoutY="269.0" mnemonicParsing="false" onAction="#EliminarProductoAction" text="Eliminar" />
+      <TableView fx:id="tableViewListaProductos" layoutX="14.0" layoutY="373.0" prefHeight="239.0" prefWidth="717.0">
+        <columns>
+          <TableColumn fx:id="columnNombreProducto" prefWidth="182.0" text="Nombre" />
+          <TableColumn fx:id="columnCategoriaProducto" prefWidth="187.0" text="Categoria" />
+            <TableColumn fx:id="columnPrecioProducto" prefWidth="164.0" text="Precio" />
+            <TableColumn fx:id="columnEstadoProducto" prefWidth="183.0" text="Estado" />
+        </columns>
+      </TableView>
+      <Label layoutX="232.0" layoutY="325.0" text="LISTADO DE PRODUCTOS">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
-
