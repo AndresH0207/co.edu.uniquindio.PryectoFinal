@@ -1,2 +1,2 @@
 .clase
-/ bin /
+/bin/
