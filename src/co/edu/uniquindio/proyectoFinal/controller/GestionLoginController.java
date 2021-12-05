@@ -50,15 +50,27 @@ public class GestionLoginController {
 		ingresarLogin();
 	}
 
-	@FXML
-	void initialize() {
-		
-		for (TipoUsuario usuarios : TipoUsuario.values()) {
-			comboBoxTipoUsuario.getItems().addAll(usuarios);
-		}
+	/**
+	 * Método que pasa la clase principal para realizar la
+	 * comunicación
+	 * @param aplicacion
+	 */
+	public void setAplicacion(Aplicacion aplicacion)
+	{
+		this.aplicacion = aplicacion;
 
-		ObservableList<TipoUsuario> listaCiudades = FXCollections.observableArrayList(TipoUsuario.values());
-		comboBoxTipoUsuario.setItems(listaCiudades);
+		comboBoxTipoUsuario.getItems().clear();
+		comboBoxTipoUsuario.setItems(obtenerListaTipoUsuarios());
+	}
+	
+	/**
+	 * Método que permite obtener la lista de tipos de usuario
+	 * @return
+	 */
+	private ObservableList<TipoUsuario> obtenerListaTipoUsuarios()
+	{
+		lstTipoUsuariosData.addAll(aplicacion.obtenerListaTiposUsuarios());
+		return lstTipoUsuariosData;
 	}
 
 	private void ingresarLogin() {
@@ -97,10 +109,4 @@ public class GestionLoginController {
 		alert.showAndWait();
 	}
 
-	/**
-	 * Metodo que pasa la clase principal para realizar la comunicacion
-	 * @param aplicacion
-	 */
-	public void setAplicacion(Aplicacion aplicacion) {
-		this.aplicacion = aplicacion;
-	}}
+	}

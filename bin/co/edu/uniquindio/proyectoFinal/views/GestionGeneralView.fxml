@@ -6,24 +6,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController">
    <children>
-      <HBox prefHeight="76.0" prefWidth="600.0">
+      <HBox prefHeight="86.0" prefWidth="808.0">
          <children>
-            <AnchorPane prefHeight="93.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#343FF4, #E98A87)};">
+            <AnchorPane prefHeight="76.0" prefWidth="808.0" style="-fx-background-color: linear-gradient(#343FF4, #E98A87)};">
                <children>
-                  <ImageView fx:id="imagenUsuario" fitHeight="68.0" fitWidth="75.0" layoutX="23.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="nombreUsuario" layoutX="130.0" layoutY="26.0" text="Nombre Usuariol" textFill="#edecec">
+                  <Label fx:id="nombreUsuario" layoutX="213.0" layoutY="23.0" prefHeight="40.0" prefWidth="168.0" text="Nombre Usuariol" textFill="#edecec">
                      <font>
                         <Font name="Comic Sans MS" size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnCerrarSesion" layoutX="438.0" layoutY="15.0" mnemonicParsing="false" onAction="#CerrarSesionAction" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: transparent;" text="Cerrar Sesion" textFill="WHITE">
+                  <Button fx:id="btnCerrarSesion" layoutX="663.0" layoutY="24.0" mnemonicParsing="false" onAction="#CerrarSesionAction" prefHeight="52.0" prefWidth="145.0" style="-fx-background-color: transparent;" text="Cerrar sesion" textFill="WHITE">
                      <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="44.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/cerrar-sesion.png" />
                            </image>
@@ -37,6 +36,32 @@
             </AnchorPane>
          </children>
       </HBox>
-      <AnchorPane layoutY="77.0" prefHeight="323.0" prefWidth="600.0" />
+      <AnchorPane layoutY="77.0" prefHeight="421.0" prefWidth="833.0">
+         <children>
+            <AnchorPane fx:id="anchorPane" layoutX="199.0" layoutY="8.0" prefHeight="413.0" prefWidth="609.0" />
+         </children></AnchorPane>
+      <VBox fx:id="vboxmenu" prefHeight="497.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(#E98A87,#343FF4)};">
+         <children>
+            <ImageView fx:id="imagenUsuario" fitHeight="112.0" fitWidth="124.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnVendedores" mnemonicParsing="false" onAction="#action1" prefHeight="69.0" prefWidth="170.0" text="vendedores">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnProductos" mnemonicParsing="false" onAction="#action2" prefHeight="66.0" prefWidth="172.0" text="admin">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

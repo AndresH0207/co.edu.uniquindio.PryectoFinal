@@ -68,13 +68,15 @@ public class Aplicacion  extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/GestionGeneralView.fxml"));
 
-			AnchorPane rootLayout = loader.load();
+			AnchorPane rootLayout = (AnchorPane)loader.load();
 
 			GestionGeneralController gestionGeneralController = loader.getController();
 			gestionGeneralController.setAplicacion(this, tipoUsuario, nombreUsuario );
 
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
+			primaryStage.centerOnScreen();
+
 			primaryStage.show();
 
 		} catch (IOException e) {
@@ -117,6 +119,11 @@ public class Aplicacion  extends Application {
 	}
 
 	
-	
+	public int[] obtenerCantidadesActuales()
+	{
+		int[] cantidades = new int[0];
+		
+		return cantidades;
+	}
 	
 }

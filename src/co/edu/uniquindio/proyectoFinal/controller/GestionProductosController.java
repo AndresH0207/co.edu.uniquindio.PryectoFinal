@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyectoFinal.controller;
 
+import co.edu.uniquindio.proyectoFinal.aplicacion.Aplicacion;
 import co.edu.uniquindio.proyectoFinal.model.Estado;
 import co.edu.uniquindio.proyectoFinal.model.Productos;
 import javafx.collections.FXCollections;
@@ -15,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
 public class GestionProductosController {
-
+ private Aplicacion aplicacion;
 	ObservableList<Productos> listaProductos = FXCollections.observableArrayList();
 	ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
 
@@ -156,5 +157,9 @@ public class GestionProductosController {
 		alerta.setHeaderText(header);
 		alerta.setContentText(contenido);
 		alerta.showAndWait();
+	}
+	public void setAplicacion(Aplicacion aplicacion)
+	{
+		this.aplicacion = aplicacion;
 	}
 }
