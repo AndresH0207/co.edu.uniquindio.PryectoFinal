@@ -12,6 +12,7 @@ public class Persistencia {
 	public static final String RUTA_ARCHIVO_VENDEDOR 		  = "src/co/edu/uniquindio/proyectoFinal/resources/ArchivoVendedores.txt";
 	public static final String RUTA_ARCHIVO_LOG 			  = "src/co/edu/uniquindio/proyectoFinal/resources/RegistroLog.txt";
 	public static final String RUTA_ARCHIVO_ADMINISTRADOR_XML = "src/co/edu/uniquindio/proyectoFinal/resources/ModelAdministrador.xml";
+	public static final String RUTA_ARCHIVO_VENDEDOR_XML = "src/co/edu/uniquindio/proyectoFinal/resources/ModelVendedor.xml";
 
 	public static void cargarDatosArchivo(Marketplace marketplace) throws FileNotFoundException, IOException {
 		ArrayList<Vendedor> vendedoresCargados = cargarVendedores();

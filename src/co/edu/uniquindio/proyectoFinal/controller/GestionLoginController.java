@@ -103,9 +103,4 @@ public class GestionLoginController {
 	 */
 	public void setAplicacion(Aplicacion aplicacion) {
 		this.aplicacion = aplicacion;
-	}
-
-	private ObservableList<TipoUsuario> obtenerListaTipoUsuarios() {
-		lstTipoUsuariosData.addAll(modelFactoryController.obtenerListaTiposUsuarios());
-		return lstTipoUsuariosData;
 	}}

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.proyectoFinal.aplicacion.Aplicacion;
+import co.edu.uniquindio.proyectoFinal.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -42,9 +43,9 @@ public class GestionGeneralController {
 
 	}
 
-	public void setAplicacion(Aplicacion aplicacion) {
+	public void setAplicacion(Aplicacion aplicacion, TipoUsuario tipoUsuario, String nombreUsuario) {
 		
-		
+		this.aplicacion = aplicacion;	
 	}
 
 }

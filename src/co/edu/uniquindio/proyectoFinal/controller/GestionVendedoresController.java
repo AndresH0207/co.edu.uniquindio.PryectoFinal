@@ -22,7 +22,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class GestionVendedoresController implements javafx.fxml.Initializable{
 
-	private Aplicacion aplicacion;
 	private Vendedor vendedorSelect;
 	private ModelFactoryController modelFactoryController;
 	ObservableList<Vendedor> listaVendedores = FXCollections.observableArrayList();
@@ -172,7 +171,6 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	}
 	
 	public void setAplicacion(Aplicacion aplicacion) {
-		this.aplicacion = aplicacion;
 		
 	}
 

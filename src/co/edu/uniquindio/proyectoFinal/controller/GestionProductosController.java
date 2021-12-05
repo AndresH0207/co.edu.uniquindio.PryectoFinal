@@ -2,7 +2,6 @@ package co.edu.uniquindio.proyectoFinal.controller;
 
 import co.edu.uniquindio.proyectoFinal.model.Estado;
 import co.edu.uniquindio.proyectoFinal.model.Productos;
-import co.edu.uniquindio.proyectoFinal.model.Vendedor;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

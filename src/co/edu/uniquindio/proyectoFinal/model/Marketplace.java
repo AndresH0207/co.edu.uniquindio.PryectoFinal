@@ -66,6 +66,7 @@ public class Marketplace {
 		return listaProductos;
 	}
 
+	
 	/**
 	 * Metodo que me permite asignar y/o actualizar la lista de productos
 	 * 
@@ -80,6 +81,7 @@ public class Marketplace {
 	 */
 	private void inicializarDatos() {
 		administrador = (Administrador) Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_ADMINISTRADOR_XML);
+		listaVendedores.add((Vendedor)Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_VENDEDOR_XML));
 	}
 
 	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion) {

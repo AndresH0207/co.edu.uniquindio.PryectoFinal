@@ -12,7 +12,7 @@ import co.edu.uniquindio.proyectoFinal.persistencia.Persistencia;
 
 public class ModelFactoryController {
 
-	Marketplace marketplace = new Marketplace("00");
+	Marketplace marketplace = new Marketplace("001");
 	Vendedor vendedor;
 	
 	Thread guardarTxt;

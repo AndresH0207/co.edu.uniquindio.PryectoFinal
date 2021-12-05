@@ -5,9 +5,10 @@ import java.util.ArrayList;
 
 import co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController;
 import co.edu.uniquindio.proyectoFinal.controller.GestionLoginController;
-import co.edu.uniquindio.proyectoFinal.controller.ModelFactoryController;
-import co.edu.uniquindio.proyectoFinal.controller.GestionVendedoresController;
+import co.edu.uniquindio.proyectoFinal.model.Marketplace;
 import co.edu.uniquindio.proyectoFinal.model.TipoUsuario;
+import co.edu.uniquindio.proyectoFinal.model.Usuario;
+import co.edu.uniquindio.proyectoFinal.model.Vendedor;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -15,9 +16,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Aplicacion  extends Application {
+	
 	public Stage primaryStage;
+    private Marketplace marketplace =new Marketplace ("001"); //
 
-	@Override
+    @Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("PROYECTO FINAL");
@@ -25,7 +28,13 @@ public class Aplicacion  extends Application {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Hola");
+		
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		launch(args);
 	}
 	
@@ -62,7 +71,7 @@ public class Aplicacion  extends Application {
 			AnchorPane rootLayout = loader.load();
 
 			GestionGeneralController gestionGeneralController = loader.getController();
-			gestionGeneralController.setAplicacion(this);
+			gestionGeneralController.setAplicacion(this, tipoUsuario, nombreUsuario );
 
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
@@ -75,26 +84,39 @@ public class Aplicacion  extends Application {
 
 	}
 	
-	public void mostrarVentanaAgregarProductos() {
-		try {
-
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/AgregarVendedoresView.fxml"));
-
-			AnchorPane rootLayout = loader.load();
-
-			GestionVendedoresController agregarProductoController = loader.getController();
-			agregarProductoController.setAplicacion(this);
-
-			Scene scene = new Scene(rootLayout);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
+	
+	
+	/**
+	 * Método que permite ingresar a la aplicación//////////
+	 * @param usuario
+	 * @param contrasena
+	 * @param tipoUsuario
+	 * @return ingreso
+	 */
+	public Usuario ingresar(String usuario, String contrasena, TipoUsuario tipoUsuario)
+	{
+		return marketplace.ingresar(usuario, contrasena, tipoUsuario);
 	}
+
+	/**
+	 * Método que permite obtener la lista de tipos de usuario
+	 * @return lstTiposUsuario
+	 */
+	public ArrayList<TipoUsuario> obtenerListaTiposUsuarios()
+	{
+		return marketplace.obtenerListaTiposUsuario();
+	}
+
+	/**
+	 * Método que permite obtener la lista de estudiantes predeterminados
+	 * @return lstEstudiantes
+	 */
+	public ArrayList<Vendedor> obtenerListaVendedorData()
+	{
+		return marketplace.getListaVendedores();
+	}
+
+	
+	
 	
 }
