@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="888.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController">
    <children>
       <HBox prefHeight="100.0" prefWidth="888.0">
          <children>
@@ -21,7 +21,7 @@
                      </font>
                   </Label>
                   <ImageView fx:id="imagenUsuario" fitHeight="66.0" fitWidth="94.0" layoutX="71.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="btnCerrarSesion" layoutX="652.0" layoutY="24.0" mnemonicParsing="false" onAction="#CerrarSesionAction" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: transparent;" text="Cerrar sesion" textFill="WHITE">
+                  <Button fx:id="btnCerrarSesion" layoutX="733.0" layoutY="24.0" mnemonicParsing="false" onAction="#CerrarSesionAction" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: transparent;" text="Cerrar sesion" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="44.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -42,7 +42,7 @@
             <AnchorPane fx:id="anchorPane" layoutX="229.0" prefHeight="500.0" prefWidth="658.0" />
             <VBox fx:id="vboxmenu" prefHeight="500.0" prefWidth="229.0" style="-fx-background-color: linear-gradient(#E98A87,#343FF4)};">
                <children>
-                  <Button fx:id="btnRed" mnemonicParsing="false" onAction="#redVendedores" prefHeight="35.0" prefWidth="229.0" style="-fx-background-color: transparent;" text="Red markeplace" textAlignment="CENTER" textFill="#f6f6f6">
+                  <Button fx:id="btnRed" mnemonicParsing="false" onAction="#redVendedores" prefHeight="35.0" prefWidth="229.0" style="-fx-background-color: transparent;" styleClass="btns-principales" text="Red markeplace" textAlignment="CENTER" textFill="#f6f6f6">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnProductosEnRed" mnemonicParsing="false" onAction="#productosEnRed" prefHeight="39.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="Productos en la Red" textFill="#f6f6f6">
+                  <Button fx:id="btnProductosEnRed" mnemonicParsing="false" onAction="#productosEnRed" prefHeight="39.0" prefWidth="230.0" style="-fx-background-color: transparent;" styleClass="btns-principales" text="Productos en la Red" textFill="#f6f6f6">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                            <image>
