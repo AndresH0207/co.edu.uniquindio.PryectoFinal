@@ -8,7 +8,7 @@ public class Marketplace {
 
 	String codigo;
 	private ArrayList<Vendedor> listaVendedores;
-	private ArrayList<Productos> listaProductos;
+	private ArrayList<Producto> listaProductos;
 	private Administrador administrador;
 
 	/**
@@ -19,7 +19,7 @@ public class Marketplace {
 	public Marketplace(String codigo) {
 		this.codigo = codigo;
 		listaVendedores = new ArrayList<Vendedor>();
-		listaProductos = new ArrayList<Productos>();
+		listaProductos = new ArrayList<Producto>();
 		inicializarDatos();
 	}
 
@@ -62,7 +62,7 @@ public class Marketplace {
 	 * 
 	 * @return listaProductos
 	 */
-	public ArrayList<Productos> getListaProductos() {
+	public ArrayList<Producto> getListaProductos() {
 		return listaProductos;
 	}
 
@@ -72,7 +72,7 @@ public class Marketplace {
 	 * 
 	 * @param listaProductos
 	 */
-	public void setListaProductos(ArrayList<Productos> listaProductos) {
+	public void setListaProductos(ArrayList<Producto> listaProductos) {
 		this.listaProductos = listaProductos;
 	}
 
@@ -140,9 +140,9 @@ public class Marketplace {
 		return null;
 	}
 
-	public Productos crearProductos(String nombre, String categoria, double precio, Estado estado) {
+	public Producto crearProductos(String nombre, String categoria, double precio, Estado estado) {
 
-		Productos productos = new Productos();
+		Producto productos = new Producto();
 
 		productos.setNombre(nombre);
 		productos.setCategoria(categoria);

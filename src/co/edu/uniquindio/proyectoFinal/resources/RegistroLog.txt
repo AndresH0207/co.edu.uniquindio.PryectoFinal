@@ -4,3 +4,5 @@ dic 05, 2021 2:50:45 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil
 INFORMACIÓN: Crear Vendedor,Vendedor Creado,
 dic 05, 2021 2:51:42 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Crear Vendedor,Vendedor Creado,
+dic. 05, 2021 4:49:28 P. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Crear Vendedor,Vendedor Creado,

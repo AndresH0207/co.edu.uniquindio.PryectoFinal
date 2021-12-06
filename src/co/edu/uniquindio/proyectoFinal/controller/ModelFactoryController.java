@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import co.edu.uniquindio.proyectoFinal.model.Estado;
 import co.edu.uniquindio.proyectoFinal.model.Marketplace;
-import co.edu.uniquindio.proyectoFinal.model.Productos;
+import co.edu.uniquindio.proyectoFinal.model.Producto;
 import co.edu.uniquindio.proyectoFinal.model.TipoUsuario;
 import co.edu.uniquindio.proyectoFinal.model.Usuario;
 import co.edu.uniquindio.proyectoFinal.model.Vendedor;
@@ -91,9 +91,9 @@ public class ModelFactoryController {
 
 
 	
-	public Productos crearProducto(String nombre, String categoria, double precio, Estado estado) {
+	public Producto crearProducto(String nombre, String categoria, double precio, Estado estado) {
 		
-		Productos productos = null;
+		Producto productos = null;
 
 		try {
 			

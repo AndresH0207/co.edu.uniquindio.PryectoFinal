@@ -2,7 +2,7 @@ package co.edu.uniquindio.proyectoFinal.controller;
 
 import co.edu.uniquindio.proyectoFinal.aplicacion.Aplicacion;
 import co.edu.uniquindio.proyectoFinal.model.Estado;
-import co.edu.uniquindio.proyectoFinal.model.Productos;
+import co.edu.uniquindio.proyectoFinal.model.Producto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,7 +17,7 @@ import javafx.scene.control.Alert.AlertType;
 
 public class GestionProductosController {
  private Aplicacion aplicacion;
-	ObservableList<Productos> listaProductos = FXCollections.observableArrayList();
+	ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
 	ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
 
 	@FXML
@@ -42,19 +42,19 @@ public class GestionProductosController {
 	private Button btnEliminarProducto;
 
 	@FXML
-	private TableView<Productos> tableViewListaProductos;
+	private TableView<Producto> tableViewListaProductos;
 
 	@FXML
-	private TableColumn<Productos, String> columnNombreProducto;
+	private TableColumn<Producto, String> columnNombreProducto;
 
 	@FXML
-	private TableColumn<Productos, String> columnCategoriaProducto;
+	private TableColumn<Producto, String> columnCategoriaProducto;
 
 	@FXML
-	private TableColumn<Productos, String> columnPrecioProducto;
+	private TableColumn<Producto, String> columnPrecioProducto;
 
 	@FXML
-	private TableColumn<Productos, String> columnEstadoProducto;
+	private TableColumn<Producto, String> columnEstadoProducto;
 
 	@FXML
 	void ActualizarProductoAction(ActionEvent event) {
@@ -88,7 +88,7 @@ public class GestionProductosController {
 
 		if (datosValidos(nombre, categoria, precio, estado)) {
 
-			Productos productosNuevos = null;
+			Producto productosNuevos = null;
 			productosNuevos = modelFactoryController.crearProducto(nombre, categoria, precio, estado);
 			cargarListadoProductos();
 
@@ -123,7 +123,7 @@ public class GestionProductosController {
 
 	}
 
-	private ObservableList<Productos> obtenerVendedores() {
+	private ObservableList<Producto> obtenerVendedores() {
 		// TODO Auto-generated method stub
 		return null;
 	}

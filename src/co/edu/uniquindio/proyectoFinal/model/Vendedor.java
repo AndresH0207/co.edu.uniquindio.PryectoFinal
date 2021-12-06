@@ -1,11 +1,20 @@
 package co.edu.uniquindio.proyectoFinal.model;
 
+import java.util.ArrayList;
+
 public class Vendedor extends Usuario {
 
 	private String nombre;
 	private String apellidos;
 	private String cedula;
 	private String direccion;
+	private String usurio;
+	private String contraseña;
+	private ArrayList<Vendedor>listaVendedores=new ArrayList<>();
+	private  ArrayList<Producto>listaProductoa=new ArrayList<>();
+	private  ArrayList<Producto>Sugeridos=new ArrayList<>();
+	private  ArrayList<Solicitud>ListaSolicitudes=new ArrayList<>();
+	private  ArrayList<Solicitud>ListaSolicitudesEnivadas=new ArrayList<>();
 
 	public Vendedor() {
 	}
