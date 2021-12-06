@@ -17,8 +17,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class GestionGeneralController {
+	
+	
 	Aplicacion aplicacion;
 
 	private GestionVendedoresController gestionVendedoresController;
@@ -57,8 +61,7 @@ public class GestionGeneralController {
 	@FXML
 	private Button btnProductosporVen;
 
-	@FXML
-	private Button btnProductosporVen1;
+
 
 	@FXML
 	private Button btnRed;
@@ -143,35 +146,35 @@ public class GestionGeneralController {
 
 	}
 
-	public void ocultarBotones(TipoUsuario tipoUsuario) {
-		if (tipoUsuario == TipoUsuario.ADMINISTRADOR) {
-			btnProductosEnRed.setVisible(false);
-			btnAddProductos.setVisible(false);
-			btnMisProductos.setVisible(false);
-			btnChats.setVisible(false);
-			btnVideo.setVisible(false);
-			btnRed.setVisible(true);
-			btnAddVendedor.setVisible(true);
-			btnCantMsjs.setVisible(true);
-			btnCantProductos.setVisible(true);
-			btnTopProductos.setVisible(true);
-			btnProductosporVen.setVisible(true);
-
-		} else if (tipoUsuario == TipoUsuario.VENDEDOR) {
-			btnRed.setVisible(false);
-			btnAddVendedor.setVisible(false);
-			btnCantMsjs.setVisible(false);
-			btnCantProductos.setVisible(false);
-			btnTopProductos.setVisible(false);
-			btnProductosporVen.setVisible(false);
-			btnProductosEnRed.setVisible(true);
-			btnAddProductos.setVisible(true);
-			btnMisProductos.setVisible(true);
-			btnChats.setVisible(true);
-			btnVideo.setVisible(true);
-		}
-
-	}
+//	public void ocultarBotones(TipoUsuario tipoUsuario) {
+//		if (tipoUsuario == TipoUsuario.ADMINISTRADOR) {
+//			btnProductosEnRed.setVisible(false);
+//			btnAddProductos.setVisible(false);
+//			btnMisProductos.setVisible(false);
+//			btnChats.setVisible(false);
+//			btnVideo.setVisible(false);
+//			btnRed.setVisible(true);
+//			btnAddVendedor.setVisible(true);
+//			btnCantMsjs.setVisible(true);
+//			btnCantProductos.setVisible(true);
+//			btnTopProductos.setVisible(true);
+//			btnProductosporVen.setVisible(true);
+//
+//		} else if (tipoUsuario == TipoUsuario.VENDEDOR) {
+//			btnRed.setVisible(false);
+//			btnAddVendedor.setVisible(false);
+//			btnCantMsjs.setVisible(false);
+//			btnCantProductos.setVisible(false);
+//			btnTopProductos.setVisible(false);
+//			btnProductosporVen.setVisible(false);
+//			btnProductosEnRed.setVisible(true);
+//			btnAddProductos.setVisible(true);
+//			btnMisProductos.setVisible(true);
+//			btnChats.setVisible(true);
+//			btnVideo.setVisible(true);
+//		}
+//
+//	}
 
 	/**
 	 * Método que permite mostrar la imagen asociada al tipo de usuario
@@ -294,10 +297,21 @@ public class GestionGeneralController {
 	private void habilitarDeshabilitarPermisos(TipoUsuario tipoUsuario) {
 		switch (tipoUsuario) {
 		case ADMINISTRADOR:
-
+			
+			vboxmenu.getChildren().remove(btnProductosEnRed);
+			vboxmenu.getChildren().remove(btnAddProductos);
+			vboxmenu.getChildren().remove(btnMisProductos);
+			vboxmenu.getChildren().remove(btnChats);
+			vboxmenu.getChildren().remove(btnVideo);
 			break;
 		case VENDEDOR:
 
+			vboxmenu.getChildren().remove(btnRed);
+			vboxmenu.getChildren().remove(btnAddVendedor);
+			vboxmenu.getChildren().remove(btnCantMsjs);
+			vboxmenu.getChildren().remove(btnCantProductos);
+			vboxmenu.getChildren().remove(btnTopProductos);
+			vboxmenu.getChildren().remove(btnProductosporVen);
 			break;
 		default:
 			break;
@@ -309,7 +323,7 @@ public class GestionGeneralController {
 		this.aplicacion = aplicacion;
 		habilitarDeshabilitarPermisos(tipoUsuario);
 		insertarImagenTipoUsuario(tipoUsuario, nombreUsuario);
-		ocultarBotones(tipoUsuario);
+		//ocultarBotones(tipoUsuario);
 	}
 
 }

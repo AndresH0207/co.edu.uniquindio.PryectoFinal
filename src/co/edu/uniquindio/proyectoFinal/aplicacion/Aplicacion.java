@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class Aplicacion  extends Application {
 	
@@ -23,8 +24,8 @@ public class Aplicacion  extends Application {
     @Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("PROYECTO FINAL");
 		mostrarVentanaLogin();
+		//mostrarVentanaPrincipal(TipoUsuario.ADMINISTRADOR,"MAYCOL");
 	}
 	
 	public static void main(String[] args) {
@@ -43,13 +44,17 @@ public class Aplicacion  extends Application {
 		try
 		{
 			FXMLLoader loader = new FXMLLoader();
+			
 			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/GestionLoginView.fxml"));
+
 			AnchorPane rootLayout = (AnchorPane) loader.load();
 
 			GestionLoginController loginController = loader.getController();
 			loginController.setAplicacion(this);
 
 			Scene scene = new Scene(rootLayout);
+			primaryStage.setResizable(false);
+			primaryStage.setTitle(null);
 			primaryStage.setScene(scene);
 			primaryStage.centerOnScreen();
 			primaryStage.show();
@@ -62,23 +67,27 @@ public class Aplicacion  extends Application {
 	}
 	
 	public void mostrarVentanaPrincipal(TipoUsuario tipoUsuario, String nombreUsuario) {
-		
+
 		try {
 
 			FXMLLoader loader = new FXMLLoader();
+			
 			loader.setLocation(Aplicacion.class.getResource("/co/edu/uniquindio/proyectoFinal/views/GestionGeneralView.fxml"));
-
 			AnchorPane rootLayout = (AnchorPane)loader.load();
 
 			GestionGeneralController gestionGeneralController = loader.getController();
+
 			gestionGeneralController.setAplicacion(this, tipoUsuario, nombreUsuario );
 
 			Scene scene = new Scene(rootLayout);
+			scene.getStylesheets().add(Aplicacion.class.getResource("application.css").toExternalForm());
+			primaryStage.setResizable(false);
+			primaryStage.setTitle(null);
 			primaryStage.setScene(scene);
+
 			primaryStage.centerOnScreen();
-
 			primaryStage.show();
-
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
