@@ -1,5 +1,14 @@
 package co.edu.uniquindio.proyectoFinal.controller;
 
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
+import co.edu.uniquindio.PryectoFinal.exepciones.ActualizarException;
+import co.edu.uniquindio.PryectoFinal.exepciones.AgregarException;
+import co.edu.uniquindio.PryectoFinal.exepciones.EliminarException;
 import co.edu.uniquindio.proyectoFinal.aplicacion.Aplicacion;
 import co.edu.uniquindio.proyectoFinal.model.Estado;
 import co.edu.uniquindio.proyectoFinal.model.Producto;
@@ -7,17 +16,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class GestionProductosController {
- ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
-	ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
+public class GestionProductosController implements Initializable {
+
+	private Aplicacion aplicacion;
+	private Producto selectProducto;
+	private ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
+	ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
 
 	@FXML
 	private TextField txtNombreProducto;
@@ -56,24 +71,26 @@ public class GestionProductosController {
 	private TableColumn<Producto, String> columnEstadoProducto;
 
 	@FXML
-	void ActualizarProductoAction(ActionEvent event) {
+	void ActualizarProductoAction(ActionEvent event) throws ActualizarException {
 
 		actualizarProducto();
 	}
 
 	@FXML
-	void AgregarProductoAction(ActionEvent event) {
+	void AgregarProductoAction(ActionEvent event) throws AgregarException {
 
 		agregarProducto();
 	}
 
 	@FXML
-	void EliminarProductoAction(ActionEvent event) {
+	void EliminarProductoAction(ActionEvent event) throws EliminarException {
 
 		eliminarProducto();
 	}
 
-	private void agregarProducto() {
+	private void agregarProducto() throws AgregarException {
+
+		System.out.println(listaProductos + "isis");
 
 		String nombre;
 		String categoria;
@@ -104,27 +121,105 @@ public class GestionProductosController {
 
 	}
 
-	private void actualizarProducto() {
-		// TODO Auto-generated method stub
+	private void actualizarProducto() throws ActualizarException {
+
+		String nombre = txtNombreProducto.getText();
+		String categoria = txtCategoriaProductos.getText();
+		Double precio = Double.parseDouble(txtPrecioProductos.getText());
+		Estado estado = comboEstadoProducto.getValue();
+
+		if (datosValidos(nombre, categoria, precio, estado)) {
+
+			if (selectProducto != null) {
+
+				modelFactoryController.actualizarProducto(nombre, categoria, precio, estado,
+						selectProducto.getNombre());
+
+				mostrarMensaje("Notificacion Cliente", "Cliente Actualizado", "El cliente ha sido actualizado",
+						AlertType.INFORMATION);
+				cargarListadoProductos();
+				limpiarDatos();
+			}
+		}
+	}
+
+	private void limpiarDatos() {
+
+		txtNombreProducto.setText("");
+		txtCategoriaProductos.setText("");
+		txtPrecioProductos.setText("");
+		comboEstadoProducto.setValue(null);
+	}
+
+	private void eliminarProducto() throws EliminarException {
+
+		if (selectProducto != null) {
+
+			if (mostrarMensajeConfirmacion("Esta seguro quiere eliminar este Producto?")) {
+				modelFactoryController.eliminarProducto(selectProducto.getNombre());
+				cargarListadoProductos();
+
+				mostrarMensaje("Notificacion producto", "producto eliminado", "El producto fue eliminado con exito",
+						AlertType.INFORMATION);
+				limpiarDatos();
+
+			} else {
+				mostrarMensaje("Notificacion producto", "producto no eliminado", "El producto  no fue eliminado",
+						AlertType.INFORMATION);
+
+			}
+
+		}
 
 	}
 
-	private void eliminarProducto() {
-		// TODO Auto-generated method stub
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		ObservableList<Estado> listaEstado = FXCollections.observableArrayList(Estado.values());
+		comboEstadoProducto.setItems(listaEstado);
+
+		modelFactoryController = ModelFactoryController.getInstance();
+
+		this.columnNombreProducto.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		this.columnCategoriaProducto.setCellValueFactory(new PropertyValueFactory<>("categoria"));
+		this.columnPrecioProducto.setCellValueFactory(new PropertyValueFactory<>("precio"));
+		this.columnEstadoProducto.setCellValueFactory(new PropertyValueFactory<>("estado"));
+
+		tableViewListaProductos.getSelectionModel().selectedItemProperty()
+				.addListener((obs, oldSelection, newSelection) -> {
+
+					selectProducto = newSelection;
+
+					mostrarInfoProductos(selectProducto);
+				});
+	}
+
+	private void mostrarInfoProductos(Producto producto) {
+
+		if (producto != null) {
+
+			txtNombreProducto.setText		(producto.getNombre());
+			txtCategoriaProductos.setText	(producto.getCategoria());
+			txtPrecioProductos.setText		(String.valueOf(producto.getPrecio()));
+			comboEstadoProducto.setValue	(producto.getEstado());
+
+		} else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
 
 	}
 
-	private void cargarListadoProductos() {
+	private boolean mostrarMensajeConfirmacion(String mensaje) {
 
-		tableViewListaProductos.getItems().clear();
-		tableViewListaProductos.setItems(obtenerVendedores());
-		tableViewListaProductos.refresh();
-
-	}
-
-	private ObservableList<Producto> obtenerVendedores() {
-		// TODO Auto-generated method stub
-		return null;
+		Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+		alerta.setTitle("Confirmacion");
+		alerta.setContentText(mensaje);
+		Optional<ButtonType> action = alerta.showAndWait();
+		if (action.get() == ButtonType.OK) {
+			return true;
+		}
+		return false;
 	}
 
 	private boolean datosValidos(String nombre, String categoria, Double precio, Estado estado) {
@@ -157,7 +252,22 @@ public class GestionProductosController {
 		alerta.setContentText(contenido);
 		alerta.showAndWait();
 	}
-	public void setAplicacion(Aplicacion aplicacion)
-	{
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+		cargarListadoProductos();
+	}
+
+	private void cargarListadoProductos() {
+
+		tableViewListaProductos.getItems().clear();
+		tableViewListaProductos.setItems(obtenerProductos());
+//		tableViewListaProductos.refresh();
+
+	}
+
+	private ObservableList<Producto> obtenerProductos() {
+		listaProductos.addAll(aplicacion.obtenerProductos());
+		return listaProductos;
 	}
 }

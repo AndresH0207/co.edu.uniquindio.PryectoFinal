@@ -1,2 +1,2 @@
-src/co/edu/uniquindio/proyectoFinal/resources/ArchivoVendedores.txtJuan#osorio#null#calle 12 # 11-91#vendedor#null
-fgh#cvb#cvb#cvb#vb#vb
+Juan#osorio#null#calle 12 # 11-91#vendedor#null
+annn#aaa#aa#aaa#aaa#0u

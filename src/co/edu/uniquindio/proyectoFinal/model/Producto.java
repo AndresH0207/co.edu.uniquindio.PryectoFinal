@@ -1,15 +1,23 @@
 package co.edu.uniquindio.proyectoFinal.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Producto {
 
+public class Producto implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String nombre;
 	private String imagen;
 	private String categoria;
 	private double precio;
 	private Estado estado;
+	private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
 	private ArrayList<MeGusta> listaMegusta = new ArrayList<>();
 	private ArrayList<Comentarios> listaComentarios = new ArrayList<>();
 
@@ -72,5 +80,18 @@ public class Producto {
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+
+	public ArrayList<Producto> listaProductos() {
+		return listaProductos;
+	}
+
+	public void setListaEstudiantes(ArrayList<Producto> listaEstudiantes) {
+		this.listaProductos = listaEstudiantes;
+	}
+
+	public ArrayList<Producto> getListaProductos() {
+		return listaProductos;
+
+	}	
 
 }

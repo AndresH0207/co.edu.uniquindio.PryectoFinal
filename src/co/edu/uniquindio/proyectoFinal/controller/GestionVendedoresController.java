@@ -5,6 +5,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
+
+import co.edu.uniquindio.PryectoFinal.exepciones.ActualizarException;
+import co.edu.uniquindio.PryectoFinal.exepciones.AgregarException;
+import co.edu.uniquindio.PryectoFinal.exepciones.EliminarException;
 import co.edu.uniquindio.proyectoFinal.aplicacion.Aplicacion;
 import co.edu.uniquindio.proyectoFinal.model.Vendedor;
 import javafx.collections.FXCollections;
@@ -72,19 +76,19 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	
 
 	@FXML
-	void AgregarVendedor(ActionEvent event) {
+	void AgregarVendedor(ActionEvent event) throws AgregarException {
 
 		agregarVendedor();
 	}
 
 	@FXML
-	void ActualizarVendedor(ActionEvent event) {
+	void ActualizarVendedor(ActionEvent event) throws ActualizarException {
 
 		actualizarVendedor();
 	}
 
 	@FXML
-	void EliminarVendedor(ActionEvent event) {
+	void EliminarVendedor(ActionEvent event) throws EliminarException {
 
 		eliminarVendedor();
 	}
@@ -97,24 +101,24 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	private void mostrarInfoVendedor(Vendedor vendedor) {
 
 		if (vendedor != null){
-			txtNombreVendedor.setText(vendedor.getNombre());
-			txtApellidosVendedor.setText(vendedor.getApellidos());
-			txtCedulaVendedor.setText(vendedor.getCedula());
-			txtDireccionVendedor.setText(vendedor.getDireccion());
-			txtUsuarioVendedor.setText(vendedor.getUsuario());
+			txtNombreVendedor.setText	  (vendedor.getNombre());
+			txtApellidosVendedor.setText  (vendedor.getApellidos());
+			txtCedulaVendedor.setText	  (vendedor.getCedula());
+			txtDireccionVendedor.setText  (vendedor.getDireccion());
+			txtUsuarioVendedor.setText	  (vendedor.getUsuario());
 			txtContraseniaVendedor.setText(vendedor.getContrasenia());
 		}else{
 			JOptionPane.showMessageDialog(null, "Error");
 		}
 	}
 
-	private void agregarVendedor() {
+	private void agregarVendedor() throws AgregarException{
 		
-		String nombre = txtNombreVendedor.getText();
-		String apellidos = txtApellidosVendedor.getText();
-		String cedula = txtCedulaVendedor.getText();
-		String direccion = txtDireccionVendedor.getText();
-	    String usuario = txtUsuarioVendedor.getText();
+		String nombre 	   = txtNombreVendedor.getText();
+		String apellidos   = txtApellidosVendedor.getText();
+		String cedula 	   = txtCedulaVendedor.getText();
+		String direccion   = txtDireccionVendedor.getText();
+	    String usuario	   = txtUsuarioVendedor.getText();
 		String contrasenia = txtContraseniaVendedor.getText();
 
 		if (datosValidos(nombre, apellidos, cedula, direccion, usuario, contrasenia)) {
@@ -135,7 +139,7 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 
 	}
 
-	private void actualizarVendedor() {
+	private void actualizarVendedor() throws ActualizarException{
 
 		String nombre = txtNombreVendedor.getText();
 		String apellidos = txtApellidosVendedor.getText();
@@ -159,7 +163,7 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 		}
 	}
 
-	private void eliminarVendedor() {
+	private void eliminarVendedor() throws EliminarException{
 
 		if (vendedorSelect != null) {
 
@@ -246,10 +250,16 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 		if (direccion == null || direccion.equals("")) {
 			mensaje += "El producto es invalido";
 		}
+		if (usuario == null || usuario.equals("")) {
+			mensaje += "El usuario es invalido";
+		}
+		if (contrasenia == null || contrasenia.equals("")) {
+			mensaje += "la contrasenia es invalida";
+		}
 		if (mensaje.equals("")) {
 			return true;
 		} else {
-			mostrarMensaje("Notificacion Contactos", "Datos Invalidos", mensaje, AlertType.WARNING);
+			mostrarMensaje("Notificacion Vendedores", "Datos Invalidos", mensaje, AlertType.WARNING);
 			return false;
 		}		
 	}
@@ -260,7 +270,6 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 		
 		this.columNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
 		this.columApellidosVendedor.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
-	
 		this.columCedulaVendedor.setCellValueFactory(new PropertyValueFactory<>("cedula"));
 		this.columDireccionVendedor.setCellValueFactory(new PropertyValueFactory<>("direccion"));
 		
@@ -275,11 +284,5 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 		
 		cargarListadoContactos();
 		
-	}
-	private void obtenerCantidadesActuales()
-	{
-		int[] cantidades = aplicacion.obtenerCantidadesActuales();
-	}
-
-		
+	}	
 }

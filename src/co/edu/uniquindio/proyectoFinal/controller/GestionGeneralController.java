@@ -1,32 +1,29 @@
 package co.edu.uniquindio.proyectoFinal.controller;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import co.edu.uniquindio.proyectoFinal.aplicacion.Aplicacion;
 import co.edu.uniquindio.proyectoFinal.model.*;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+
 
 public class GestionGeneralController {
 	
 	
 	Aplicacion aplicacion;
 
-	private GestionVendedoresController gestionVendedoresController;
-	private GestionProductosController gestionProductosController;
+	private GestionVendedoresController			 gestionVendedoresController;
+	private GestionProductosController 			 gestionProductosController;
+	private GestionBuscarProductosController	 gestionBuscarProductosController;
+	private GestionBuscarProductosRedController  gestionBuscarProductosRedController;
+	private RedVendedoresController 			 redVendedoresController;
 
 	@FXML
 	private AnchorPane anchorPane;
@@ -34,7 +31,8 @@ public class GestionGeneralController {
 	@FXML
 	private Button btnAddVendedor;
 
-	
+	@FXML
+	private Button btnVideo;
 
 	@FXML
 	private Button btnAddProductos;
@@ -59,8 +57,6 @@ public class GestionGeneralController {
 
 	@FXML
 	private Button btnProductosporVen;
-
-
 
 	@FXML
 	private Button btnRed;
@@ -98,7 +94,7 @@ public class GestionGeneralController {
 	}
 
 	@FXML
-	void chat(ActionEvent event) {
+	void chats(ActionEvent event) {
 		abrirVentana(NombreVentana.CHAT);
 	}
 
@@ -176,7 +172,7 @@ public class GestionGeneralController {
 //	}
 
 	/**
-	 * Método que permite mostrar la imagen asociada al tipo de usuario
+	 * Mï¿½todo que permite mostrar la imagen asociada al tipo de usuario
 	 * 
 	 * @param tipoUsuario
 	 * @param nombreUsuario
@@ -205,7 +201,7 @@ public class GestionGeneralController {
 	///////////////////////////////////////////
 
 	/**
-	 * Método que permite abrir las vistas de los menus
+	 * Mï¿½todo que permite abrir las vistas de los menus
 	 */
 	private void abrirVentana(NombreVentana nombreVentana) {
 		FXMLLoader loader = new FXMLLoader();
@@ -214,11 +210,11 @@ public class GestionGeneralController {
 		try {
 			switch (nombreVentana) {
 			case GESTION_RED:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+				loader.setLocation(getClass().getResource("/co/edu/uniquindio/proyectoFinal/views/RedVendedores.fxml"));
 				vistaCargada = loader.load();
 				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
+				this.redVendedoresController = loader.getController();
+				this.redVendedoresController.setAplicacion(this.aplicacion);
 				break;
 			case GESTION_VENDEDOR:
 				loader.setLocation(getClass().getResource("../views/GestionVendedoresView.fxml"));
@@ -227,62 +223,62 @@ public class GestionGeneralController {
 				this.gestionVendedoresController = loader.getController();
 				this.gestionVendedoresController.setAplicacion(this.aplicacion);
 				break;
-			case GESTION_MSJS:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
-				vistaCargada = loader.load();
-				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
-				break;
-			case CANTIDAD_PRODUCTOS:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
-				vistaCargada = loader.load();
-				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
-				break;
-			case TOP_TEN:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
-				vistaCargada = loader.load();
-				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
-				break;
-			case PRODUCTOS_POR_VENDEDOR:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
-				vistaCargada = loader.load();
-				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
-				break;
+//			case GESTION_MSJS:
+//				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+//				vistaCargada = loader.load();
+//				anchorPane.getChildren().setAll(vistaCargada);
+//				this.gestionProductosController = loader.getController();
+//				this.gestionProductosController.setAplicacion(this.aplicacion);
+//				break;
+//			case CANTIDAD_PRODUCTOS:
+//				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+//				vistaCargada = loader.load();
+//				anchorPane.getChildren().setAll(vistaCargada);
+//				this.gestionProductosController = loader.getController();
+//				this.gestionProductosController.setAplicacion(this.aplicacion);
+//				break;
+//			case TOP_TEN:
+//				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+//				vistaCargada = loader.load();
+//				anchorPane.getChildren().setAll(vistaCargada);
+//				this.gestionProductosController = loader.getController();
+//				this.gestionProductosController.setAplicacion(this.aplicacion);
+//				break;
+//			case PRODUCTOS_POR_VENDEDOR:
+//				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+//				vistaCargada = loader.load();
+//				anchorPane.getChildren().setAll(vistaCargada);
+//				this.gestionProductosController = loader.getController();
+//				this.gestionProductosController.setAplicacion(this.aplicacion);
+//				break;
 			case PRODUCTOS_RED:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+				loader.setLocation(getClass().getResource("/co/edu/uniquindio/proyectoFinal/views/ProductosRed.fxml"));
 				vistaCargada = loader.load();
 				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
+				this.gestionBuscarProductosRedController = loader.getController();
+				this.gestionBuscarProductosRedController.setAplicacion(this.aplicacion);
 				break;
 			case GESTION_PRODUCTOS:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+				loader.setLocation(getClass().getResource("/co/edu/uniquindio/proyectoFinal/views/GestionProductosView.fxml"));
 				vistaCargada = loader.load();
 				anchorPane.getChildren().setAll(vistaCargada);
 				this.gestionProductosController = loader.getController();
 				this.gestionProductosController.setAplicacion(this.aplicacion);
 				break;
 			case MIS_PRODUCTOS:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+				loader.setLocation(getClass().getResource("/co/edu/uniquindio/proyectoFinal/views/GestionBuscarProductos.fxml"));
 				vistaCargada = loader.load();
 				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
+				this.gestionBuscarProductosController = loader.getController();
+				this.gestionBuscarProductosController.setAplicacion(this.aplicacion);
 				break;
-			case CHAT:
-				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
-				vistaCargada = loader.load();
-				anchorPane.getChildren().setAll(vistaCargada);
-				this.gestionProductosController = loader.getController();
-				this.gestionProductosController.setAplicacion(this.aplicacion);
-				break;
+//			case CHAT:
+//				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
+//				vistaCargada = loader.load();
+//				anchorPane.getChildren().setAll(vistaCargada);
+//				this.gestionProductosController = loader.getController();
+//				this.gestionProductosController.setAplicacion(this.aplicacion);
+//				break;
 
 			default:
 				break;

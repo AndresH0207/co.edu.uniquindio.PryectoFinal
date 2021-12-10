@@ -17,11 +17,11 @@
          <children>
             <TableView fx:id="TableViewRed" layoutX="15.0" layoutY="136.0" prefHeight="349.0" prefWidth="619.0" style="-fx-background-color: #b1befa; -fx-background-radius: 15; -fx-border-radius: 15;">
               <columns>
-                <TableColumn fx:id="tbRedNombre" prefWidth="123.0" text="Nombre" />
-                <TableColumn fx:id="tbRedApellido" prefWidth="126.0" text="Apellido" />
-                  <TableColumn fx:id="tbRedCedula" prefWidth="125.0" text="Cedula" />
-                  <TableColumn fx:id="tbRedDirecion" prefWidth="126.0" text="Direccion" />
-                  <TableColumn prefWidth="118.0" text="Producto" />
+                <TableColumn fx:id="columnNombre" prefWidth="123.0" text="Nombre" />
+                <TableColumn fx:id="columnApellido" prefWidth="126.0" text="Apellido" />
+                  <TableColumn fx:id="columnCedula" prefWidth="125.0" text="Cedula" />
+                  <TableColumn fx:id="ColumnDireccion" prefWidth="126.0" text="Direccion" />
+                  <TableColumn fx:id="ColumnProducto" prefWidth="118.0" text="Producto" />
               </columns>
                <effect>
                   <InnerShadow />

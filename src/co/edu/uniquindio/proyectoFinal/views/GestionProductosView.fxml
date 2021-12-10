@@ -7,42 +7,99 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="716.0" prefWidth="772.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.AgregarProductosController">
+<AnchorPane prefHeight="25.0" prefWidth="119.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionProductosController">
    <children>
-      <Label layoutX="244.0" layoutY="14.0" text="AGREGAR PRODUCTOS">
-         <font>
-            <Font name="System Bold Italic" size="27.0" />
-         </font>
-      </Label>
-      <Separator layoutX="14.0" layoutY="50.0" prefHeight="0.0" prefWidth="746.0" />
-      <TextField fx:id="txtNombreProducto" layoutX="14.0" layoutY="83.0" prefHeight="27.0" prefWidth="496.0" promptText="Nombre del producto" />
-      <TextField fx:id="txtCategoriaProductos" layoutX="14.0" layoutY="127.0" prefHeight="27.0" prefWidth="496.0" promptText="Categoria" />
-      <TextField fx:id="txtPrecioProductos" layoutX="14.0" layoutY="172.0" prefHeight="27.0" prefWidth="496.0" promptText="Precio" />
-      <Label layoutX="14.0" layoutY="223.0" text="Estado:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="comboEstadoProducto" layoutX="83.0" layoutY="220.0" prefHeight="27.0" prefWidth="426.0" />
-      <Separator layoutX="14.0" layoutY="311.0" prefHeight="0.0" prefWidth="746.0" />
-      <Button fx:id="btnAgregarProducto" layoutX="38.0" layoutY="269.0" mnemonicParsing="false" onAction="#AgregarProductoAction" text="Agregar" />
-      <Button fx:id="btnActualizarProducto" layoutX="244.0" layoutY="269.0" mnemonicParsing="false" onAction="#ActualizarProductoAction" text="Actualizar" />
-      <Button fx:id="btnEliminarProducto" layoutX="438.0" layoutY="269.0" mnemonicParsing="false" onAction="#EliminarProductoAction" text="Eliminar" />
-      <TableView fx:id="tableViewListaProductos" layoutX="14.0" layoutY="373.0" prefHeight="239.0" prefWidth="717.0">
+      <Separator layoutX="6.0" layoutY="34.0" prefHeight="3.0" prefWidth="640.0" />
+      <TextField fx:id="txtNombreProducto" layoutX="221.0" layoutY="70.0" prefHeight="27.0" prefWidth="289.0" />
+      <TextField fx:id="txtCategoriaProductos" layoutX="221.0" layoutY="114.0" prefHeight="27.0" prefWidth="289.0" />
+      <TextField fx:id="txtPrecioProductos" layoutX="224.0" layoutY="152.0" prefHeight="27.0" prefWidth="289.0" />
+      <ComboBox fx:id="comboEstadoProducto" layoutX="223.0" layoutY="200.0" prefHeight="27.0" prefWidth="289.0" />
+      <Separator layoutX="14.0" layoutY="281.0" prefHeight="3.0" prefWidth="640.0" />
+      <TableView fx:id="tableViewListaProductos" layoutX="27.0" layoutY="319.0" prefHeight="165.0" prefWidth="598.0">
         <columns>
-          <TableColumn fx:id="columnNombreProducto" prefWidth="182.0" text="Nombre" />
-          <TableColumn fx:id="columnCategoriaProducto" prefWidth="187.0" text="Categoria" />
-            <TableColumn fx:id="columnPrecioProducto" prefWidth="164.0" text="Precio" />
-            <TableColumn fx:id="columnEstadoProducto" prefWidth="183.0" text="Estado" />
+          <TableColumn fx:id="columnNombreProducto" prefWidth="147.0" text="Nombre" />
+          <TableColumn fx:id="columnCategoriaProducto" prefWidth="174.0" text="Categoria" />
+            <TableColumn fx:id="columnPrecioProducto" prefWidth="142.0" text="Precio" />
+            <TableColumn fx:id="columnEstadoProducto" prefWidth="146.0" text="Estado" />
         </columns>
       </TableView>
-      <Label layoutX="232.0" layoutY="325.0" text="LISTADO DE PRODUCTOS">
+      <Label layoutX="213.0" layoutY="-6.0" prefHeight="41.0" prefWidth="200.0" text="Agregar Productos" textFill="#100f0f">
          <font>
-            <Font name="System Bold Italic" size="27.0" />
+            <Font name="Comic Sans MS" size="22.0" />
          </font>
       </Label>
+      <Label layoutX="206.0" layoutY="37.0" text="Informacion del Producto">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="7.0" layoutY="61.0" prefHeight="3.0" prefWidth="640.0" />
+      <Label layoutX="114.0" layoutY="73.0" text="Nombre:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="121.0" layoutY="203.0" text="estado:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="155.0" text="Precio:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="118.0" layoutY="117.0" text="Categoria:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAgregarProducto" layoutX="144.0" layoutY="236.0" mnemonicParsing="false" onAction="#AgregarProductoAction" prefHeight="37.0" prefWidth="125.0" text="Agregar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/add-user.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="btnActualizarProducto" layoutX="413.0" layoutY="236.0" mnemonicParsing="false" onAction="#ActualizarProductoAction" prefHeight="37.0" prefWidth="125.0" text="Actualizar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/refresh.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="233.0" layoutY="284.0" text="Listado de vendedores">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="7.0" layoutY="309.0" prefHeight="3.0" prefWidth="640.0" />
+      <Button fx:id="btnEliminarProducto" layoutX="422.0" layoutY="491.0" mnemonicParsing="false" onAction="#EliminarProductoAction" prefHeight="25.0" prefWidth="119.0" text="Eliminar">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/delete-friend.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

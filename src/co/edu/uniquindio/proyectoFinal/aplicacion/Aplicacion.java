@@ -3,9 +3,12 @@ package co.edu.uniquindio.proyectoFinal.aplicacion;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import co.edu.uniquindio.PryectoFinal.exepciones.NoUsuarioException;
 import co.edu.uniquindio.proyectoFinal.controller.GestionGeneralController;
 import co.edu.uniquindio.proyectoFinal.controller.GestionLoginController;
+import co.edu.uniquindio.proyectoFinal.controller.ModelFactoryController;
 import co.edu.uniquindio.proyectoFinal.model.Marketplace;
+import co.edu.uniquindio.proyectoFinal.model.Producto;
 import co.edu.uniquindio.proyectoFinal.model.TipoUsuario;
 import co.edu.uniquindio.proyectoFinal.model.Usuario;
 import co.edu.uniquindio.proyectoFinal.model.Vendedor;
@@ -20,12 +23,14 @@ public class Aplicacion  extends Application {
 	
 	public Stage primaryStage;
     private Marketplace marketplace =new Marketplace ("001"); //
+	private ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
+
 
     @Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-		//mostrarVentanaLogin();
-		mostrarVentanaPrincipal(TipoUsuario.ADMINISTRADOR,"MAYCOL");
+		mostrarVentanaLogin();
+		//mostrarVentanaPrincipal(TipoUsuario.ADMINISTRADOR,"MAYCOL");
 	}
 	
 	public static void main(String[] args) {
@@ -98,19 +103,19 @@ public class Aplicacion  extends Application {
 	
 	
 	/**
-	 * Método que permite ingresar a la aplicación//////////
+	 * Mï¿½todo que permite ingresar a la aplicaciï¿½n//////////
 	 * @param usuario
 	 * @param contrasena
 	 * @param tipoUsuario
 	 * @return ingreso
 	 */
-	public Usuario ingresar(String usuario, String contrasena, TipoUsuario tipoUsuario)
+	public Usuario ingresar(String usuario, String contrasena, TipoUsuario tipoUsuario) throws NoUsuarioException
 	{
 		return marketplace.ingresar(usuario, contrasena, tipoUsuario);
 	}
 
 	/**
-	 * Método que permite obtener la lista de tipos de usuario
+	 * Mï¿½todo que permite obtener la lista de tipos de usuario
 	 * @return lstTiposUsuario
 	 */
 	public ArrayList<TipoUsuario> obtenerListaTiposUsuarios()
@@ -119,12 +124,16 @@ public class Aplicacion  extends Application {
 	}
 
 	/**
-	 * Método que permite obtener la lista de estudiantes predeterminados
+	 * Mï¿½todo que permite obtener la lista de estudiantes predeterminados
 	 * @return lstEstudiantes
 	 */
 	public ArrayList<Vendedor> obtenerListaVendedorData()
 	{
 		return marketplace.getListaVendedores();
+	}
+	
+	public ArrayList<Producto> obtenerProductos() {
+		return modelFactoryController.getListaProducto();
 	}
 
 	

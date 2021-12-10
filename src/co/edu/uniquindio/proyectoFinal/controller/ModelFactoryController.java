@@ -2,6 +2,10 @@ package co.edu.uniquindio.proyectoFinal.controller;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
+import co.edu.uniquindio.PryectoFinal.exepciones.ActualizarException;
+import co.edu.uniquindio.PryectoFinal.exepciones.EliminarException;
 import co.edu.uniquindio.proyectoFinal.model.Estado;
 import co.edu.uniquindio.proyectoFinal.model.Marketplace;
 import co.edu.uniquindio.proyectoFinal.model.Producto;
@@ -14,7 +18,7 @@ public class ModelFactoryController {
 
 	Marketplace marketplace = new Marketplace("001");
 	Vendedor vendedor;
-	
+
 	Thread guardarTxt;
 	Thread guardarXml;
 	Thread guardarBinario;
@@ -33,11 +37,13 @@ public class ModelFactoryController {
 	}
 
 	private void inicializarDatos() {
-		
-		
+
 		try {
-			//marketplace.setListaVendedores(getMarketplace());
+			Persistencia.cargarDatosArchivoProducto(getMarketplace());
+			Persistencia.cargarDatosArchivoVendedores(getMarketplace());
+			// marketplace.setListaVendedores(getMarketplace());
 		} catch (Exception e) {
+			System.out.println("error de inicio "+e);
 			// TODO: handle exception
 		}
 
@@ -52,19 +58,26 @@ public class ModelFactoryController {
 	}
 
 	public ArrayList<Vendedor> getListaVendedores() {
-		
+
 		return this.marketplace.getListaVendedores();
 
 	}
 
-	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario, String contrasenia) {
+	public ArrayList<Producto> getListaProducto() {
+
+		return this.marketplace.getListaProductos();
+
+	}
+
+	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario,
+			String contrasenia) {
 
 		Vendedor vendedor = null;
 
 		try {
 			vendedor = getMarketplace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
 			guardarRegistroLog("Vendedor Creado", 1, "Crear Vendedor");
-			Persistencia.guardarContactos(getMarketplace());
+			Persistencia.guardarVendedores(getMarketplace());
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.getMessage();
@@ -72,35 +85,35 @@ public class ModelFactoryController {
 
 		return vendedor;
 	}
-	public void actualizarVendedor(String nombreActual, String apellidos, String cedula, String direccion, String usuario ,String contrasenia, String nombreNuevo) {
-		marketplace.actualizarVendedor(nombreActual, apellidos, cedula, direccion, usuario, contrasenia, nombreNuevo);		
+
+	public void actualizarVendedor(String nombreActual, String apellidos, String cedula, String direccion,
+			String usuario, String contrasenia, String nombreNuevo) {
+		marketplace.actualizarVendedor(nombreActual, apellidos, cedula, direccion, usuario, contrasenia, nombreNuevo);
 		guardarRegistroLog("Vendedor actulizado", 1, "Actualizar vendedor");
-		Persistencia.guardarContactos(getMarketplace());
+		Persistencia.guardarVendedores(getMarketplace());
 	}
 
 	public void eliminarVendedor(String nombre) {
 		marketplace.eliminarContacto(nombre);
 		guardarRegistroLog("Vendedor eliminado", 1, "Eliminar vendedor");
-		Persistencia.guardarContactos(getMarketplace());
+		Persistencia.guardarVendedores(getMarketplace());
 
 	}
 
-	public void guardarRegistroLog(String mensaje,int nivel,String accion) {
-		Persistencia.guardarRegistroLog(mensaje,nivel,accion);
+	public void guardarRegistroLog(String mensaje, int nivel, String accion) {
+		Persistencia.guardarRegistroLog(mensaje, nivel, accion);
 	}
 
-
-	
 	public Producto crearProducto(String nombre, String categoria, double precio, Estado estado) {
-		
+
 		Producto productos = null;
 
 		try {
-			
+
 			productos = getMarketplace().crearProductos(nombre, categoria, precio, estado);
 			guardarRegistroLog("Producto Creado", 1, "Crear Producto");
 			Persistencia.guardarProductos(getMarketplace());
-			
+
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			e.getMessage();
@@ -110,12 +123,33 @@ public class ModelFactoryController {
 	}
 
 	public Usuario ingresar(String usuario, String contrasenia, TipoUsuario tipoUsuario) {
-		
-		return  marketplace.ingresar(usuario, contrasenia, tipoUsuario);
+
+		return marketplace.ingresar(usuario, contrasenia, tipoUsuario);
 	}
 
 	public ArrayList<TipoUsuario> obtenerListaTiposUsuarios() {
 		return marketplace.obtenerListaTiposUsuario();
 	}
 
+	public void actualizarProducto(String nombre, String categoria, Double precio, Estado estado, String nombre2) {
+
+		try {
+			marketplace.actualizarProducto(nombre, categoria, precio, estado, nombre2);
+		} catch (ActualizarException e) {
+			JOptionPane.showMessageDialog(null, "Producto no actualizado");
+		}
+		guardarRegistroLog("Producto actulizado", 1, "Actualizar Producto");
+		Persistencia.guardarProductos(getMarketplace());
+	}
+
+	public void eliminarProducto(String nombre) {
+
+		try {
+			marketplace.eliminarProducto(nombre);
+		} catch (EliminarException e) {
+			JOptionPane.showMessageDialog(null, "Producto no eliminado");
+		}
+		guardarRegistroLog("Producto eliminado", 1, "Eliminar Producto");
+		Persistencia.guardarProductos(getMarketplace());
+	}
 }
