@@ -8,8 +8,8 @@ public class Vendedor extends Usuario {
 	private String apellidos;
 	private String cedula;
 	private String direccion;
-	private String usurio;
-	private String contraseña;
+	private String usuario;
+	private String contrasenia;
 	private ArrayList<Vendedor>listaVendedores=new ArrayList<>();
 	private  ArrayList<Producto>listaProductoa=new ArrayList<>();
 	private  ArrayList<Producto>Sugeridos=new ArrayList<>();
@@ -50,4 +50,21 @@ public class Vendedor extends Usuario {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-}
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
+	public String getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setCotrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	
+	
+	
+}}

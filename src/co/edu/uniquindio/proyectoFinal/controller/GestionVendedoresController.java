@@ -34,7 +34,7 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	private TableColumn<Vendedor, String> columCedulaVendedor;
 
 	@FXML
-	private TextField txtNombreVendedores;
+	private TextField txtNombreVendedor;
 
 	@FXML
 	private TableColumn<Vendedor, String> columNombreVendedor;
@@ -44,6 +44,12 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 
 	@FXML
 	private TextField txtDireccionVendedor;
+	
+	@FXML
+	private TextField txtContraseniaVendedor;
+	
+	@FXML
+	private TextField txtUsuarioVendedor;
 
 	@FXML
 	private Button btnEliminarVendedores;
@@ -91,10 +97,12 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	private void mostrarInfoVendedor(Vendedor vendedor) {
 
 		if (vendedor != null){
-			txtNombreVendedores.setText(vendedor.getNombre());
+			txtNombreVendedor.setText(vendedor.getNombre());
 			txtApellidosVendedor.setText(vendedor.getApellidos());
 			txtCedulaVendedor.setText(vendedor.getCedula());
 			txtDireccionVendedor.setText(vendedor.getDireccion());
+			txtUsuarioVendedor.setText(vendedor.getUsuario());
+			txtContraseniaVendedor.setText(vendedor.getContrasenia());
 		}else{
 			JOptionPane.showMessageDialog(null, "Error");
 		}
@@ -102,15 +110,17 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 
 	private void agregarVendedor() {
 		
-		String nombre = txtNombreVendedores.getText();
+		String nombre = txtNombreVendedor.getText();
 		String apellidos = txtApellidosVendedor.getText();
 		String cedula = txtCedulaVendedor.getText();
 		String direccion = txtDireccionVendedor.getText();
+	    String usuario = txtUsuarioVendedor.getText();
+		String contrasenia = txtContraseniaVendedor.getText();
 
-		if (datosValidos(nombre, apellidos, cedula, direccion)) {
+		if (datosValidos(nombre, apellidos, cedula, direccion, usuario, contrasenia)) {
 
 			Vendedor vendedorNuevo = null;
-			vendedorNuevo = modelFactoryController.crearVendedor(nombre, apellidos, cedula, direccion);
+			vendedorNuevo = modelFactoryController.crearVendedor(nombre, apellidos, cedula, direccion, usuario , contrasenia);
 			cargarListadoContactos();
 			if (vendedorNuevo != null) {
 				listaVendedores.add(vendedorNuevo);
@@ -127,15 +137,17 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 
 	private void actualizarVendedor() {
 
-		String nombre = txtNombreVendedores.getText();
+		String nombre = txtNombreVendedor.getText();
 		String apellidos = txtApellidosVendedor.getText();
 		String cedula = txtCedulaVendedor.getText();
 		String direccion = txtDireccionVendedor.getText();
-
+		String usuario = txtUsuarioVendedor.getText();
+		String contrasenia = txtContraseniaVendedor.getText();
+		
 		if (vendedorSelect != null) {
 
-			if (datosValidos(nombre, apellidos, cedula, direccion)) {
-				modelFactoryController.actualizarVendedor(nombre, apellidos, cedula, direccion, vendedorSelect.getNombre());
+			if (datosValidos(nombre, apellidos, cedula, direccion, usuario , contrasenia)) {
+				modelFactoryController.actualizarVendedor(nombre, apellidos, cedula, direccion, usuario ,contrasenia ,vendedorSelect.getNombre());
 				mostrarMensaje("Notificacion Cliente", "Producto Actualizado", "El Producto ha sido actualizado",
 						AlertType.INFORMATION);
 				tableListaVendedores.refresh();
@@ -151,7 +163,7 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 
 		if (vendedorSelect != null) {
 
-			if (mostrarMensajeConfirmacion("�Esta seguro de eliminar a este Vendedor?")) {
+			if (mostrarMensajeConfirmacion("Esta seguro de eliminar a este Vendedor?")) {
 
 				modelFactoryController.eliminarVendedor(vendedorSelect.getNombre());
 				listaVendedores.remove(vendedorSelect);
@@ -190,10 +202,13 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	}
 	
 	private void limpiarDatos() {
-		txtNombreVendedores.setText("");
+		txtNombreVendedor.setText("");
 		txtApellidosVendedor.setText("");		
 		txtCedulaVendedor.setText("");		
-		txtDireccionVendedor.setText("");		
+		txtDireccionVendedor.setText("");	
+		txtUsuarioVendedor.setText("");	
+		txtContraseniaVendedor.setText("");		
+		
 
 	}
 
@@ -216,7 +231,7 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 		alerta.showAndWait();		
 	}
 
-	private boolean datosValidos(String nombre, String apellidos, String cedula, String direccion) {
+	private boolean datosValidos(String nombre, String apellidos, String cedula, String direccion, String usuario, String contrasenia) {
 		String mensaje = "";
 
 		if (nombre == null || nombre.equals("")) {
@@ -242,10 +257,13 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		modelFactoryController = ModelFactoryController.getInstance();
-		this.columApellidosVendedor.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+		
 		this.columNombreVendedor.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		this.columApellidosVendedor.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+	
 		this.columCedulaVendedor.setCellValueFactory(new PropertyValueFactory<>("cedula"));
 		this.columDireccionVendedor.setCellValueFactory(new PropertyValueFactory<>("direccion"));
+		
 		
 		tableListaVendedores.getSelectionModel().selectedItemProperty()
 		.addListener((obs, oldSelection, newSelection) -> {

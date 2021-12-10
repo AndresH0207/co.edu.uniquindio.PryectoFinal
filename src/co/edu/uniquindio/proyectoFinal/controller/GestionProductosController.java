@@ -16,8 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 
 public class GestionProductosController {
- private Aplicacion aplicacion;
-	ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
+ ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
 	ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
 
 	@FXML
@@ -160,6 +159,5 @@ public class GestionProductosController {
 	}
 	public void setAplicacion(Aplicacion aplicacion)
 	{
-		this.aplicacion = aplicacion;
 	}
 }

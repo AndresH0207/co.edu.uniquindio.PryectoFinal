@@ -84,19 +84,22 @@ public class Marketplace {
 		listaVendedores.add((Vendedor)Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_VENDEDOR_XML));
 	}
 
-	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion) {
+	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario,  String contrasenia) {
 
 		Vendedor vendedor = new Vendedor();
 		vendedor.setNombre(nombre);
 		vendedor.setApellidos(apellido);
 		vendedor.setCedula(cedula);
 		vendedor.setDireccion(direccion);
+		vendedor.setUsuario(usuario);
+		vendedor.setCotrasenia(contrasenia);
+		
 		getListaVendedores().add(vendedor);
 		return vendedor;
 
 	}
 
-	public void actualizarVendedor(String nombreActual, String apellidoNuevo, String cedulaNueva, String direccionNueva,
+	public void actualizarVendedor(String nombreActual, String apellidoNuevo, String cedulaNueva, String direccionNueva, String usuarioNuevo, String contraseniaNueva, 
 			String nombreNuevo) {
 
 		Vendedor vendedor = obtenerVendedor(nombreActual);
@@ -106,6 +109,8 @@ public class Marketplace {
 			vendedor.setApellidos(apellidoNuevo);
 			vendedor.setCedula(cedulaNueva);
 			vendedor.setDireccion(direccionNueva);
+			vendedor.setCedula(usuarioNuevo);
+			vendedor.setDireccion(contraseniaNueva);
 
 		}
 	}

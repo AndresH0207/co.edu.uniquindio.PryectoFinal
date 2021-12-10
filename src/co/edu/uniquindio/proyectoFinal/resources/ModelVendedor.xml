@@ -5,8 +5,14 @@
   <void property="nombre">
    <string>Juan</string>
   </void>
-  <void property="documento">
+   <void property="apellidos">
+   <string>osorio</string>
+  </void>
+  <void property="cedula">
    <int>1116445212</int>
+  </void>
+  <void property="direccion">
+   <string>calle 12 # 11-91</string>
   </void>
   <void property="usuario">
    <string>vendedor</string>
@@ -14,5 +20,31 @@
   <void property="contrasena">
    <string>1234</string>
   </void>
+  
  </object>
+ 
+ 
+  <object class="co.edu.uniquindio.proyectoFinal.model.Vendedor">
+  
+  <void property="nombre">
+   <string>raul</string>
+  </void>
+   <void property="apellidos">
+   <string>castro</string>
+  </void>
+  <void property="cedula">
+   <int>12345</int>
+  </void>
+  <void property="direccion">
+   <string>carrera 11</string>
+  </void>
+  <void property="usuario">
+   <string>vendedor1</string>
+  </void>
+  <void property="contrasena">
+   <string>1234</string>
+  </void>
+  
+ </object>
+ 
 </java>

@@ -34,8 +34,7 @@ public class GestionGeneralController {
 	@FXML
 	private Button btnAddVendedor;
 
-	@FXML
-	private Button btnVideo;
+	
 
 	@FXML
 	private Button btnAddProductos;

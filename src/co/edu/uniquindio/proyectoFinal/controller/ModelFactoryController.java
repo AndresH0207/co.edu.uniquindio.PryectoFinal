@@ -57,12 +57,12 @@ public class ModelFactoryController {
 
 	}
 
-	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion) {
+	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario, String contrasenia) {
 
 		Vendedor vendedor = null;
 
 		try {
-			vendedor = getMarketplace().crearVendedor(nombre, apellido, cedula, direccion);
+			vendedor = getMarketplace().crearVendedor(nombre, apellido, cedula, direccion, usuario, contrasenia);
 			guardarRegistroLog("Vendedor Creado", 1, "Crear Vendedor");
 			Persistencia.guardarContactos(getMarketplace());
 		} catch (NumberFormatException e) {
@@ -72,8 +72,8 @@ public class ModelFactoryController {
 
 		return vendedor;
 	}
-	public void actualizarVendedor(String nombreActual, String apellidos, String cedula, String direccion, String nombreNuevo) {
-		marketplace.actualizarVendedor(nombreActual, apellidos, cedula, direccion, nombreNuevo);		
+	public void actualizarVendedor(String nombreActual, String apellidos, String cedula, String direccion, String usuario ,String contrasenia, String nombreNuevo) {
+		marketplace.actualizarVendedor(nombreActual, apellidos, cedula, direccion, usuario, contrasenia, nombreNuevo);		
 		guardarRegistroLog("Vendedor actulizado", 1, "Actualizar vendedor");
 		Persistencia.guardarContactos(getMarketplace());
 	}

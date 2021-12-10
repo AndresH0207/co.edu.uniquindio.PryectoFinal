@@ -31,10 +31,12 @@ public class Persistencia {
 		for (int i = 0; i < contenido.size(); i++) {
 			linea = contenido.get(i);
 			Vendedor vendedor = new Vendedor();
-			vendedor.setNombre(linea.split(",")[0]);
-			vendedor.setApellidos(linea.split(",")[1]);
-			vendedor.setCedula(linea.split(",")[2]);
-			vendedor.setDireccion(linea.split(",")[3]);
+			vendedor.setNombre(linea.split("#")[0]);
+			vendedor.setApellidos(linea.split("#")[1]);
+			vendedor.setCedula(linea.split("#")[2]);
+			vendedor.setDireccion(linea.split("#")[3]);
+			vendedor.setUsuario(linea.split("#")[4]);
+			vendedor.setCotrasenia(linea.split("#")[5]);
 			
 			listaVendedores.add(vendedor);
 
@@ -50,8 +52,8 @@ public class Persistencia {
 	public static void guardarContactos(Marketplace marketplace) {
 		String contenido = "";
 		for (Vendedor vendedor : marketplace.getListaVendedores()) {
-			contenido += vendedor.getNombre() + "," + vendedor.getApellidos() + "," + vendedor.getCedula() +
-			"," + vendedor.getDireccion() + "\n";
+			contenido += vendedor.getNombre() + "#" + vendedor.getApellidos() + "#" + vendedor.getCedula() +
+			"#" + vendedor.getDireccion() + "#" + vendedor.getUsuario() + "#"  + vendedor.getContrasenia() + "\n";
 		}
 		try {
 			ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDOR, contenido, false);
@@ -92,7 +94,7 @@ public class Persistencia {
 		 * @param object
 		 * @param rutaArchivo
 		 */
-		public static void guardarDatosXML(Object object, String rutaArchivo)
+		public static void guardarDatosXML( String rutaArchivo, String object)
 		{
 
 			try

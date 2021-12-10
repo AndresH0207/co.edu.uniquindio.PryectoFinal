@@ -5,6 +5,7 @@
   <void property="nombre">
    <string>Andres</string>
   </void>
+    
   <void property="documento">
    <int>1094950421</int>
   </void>

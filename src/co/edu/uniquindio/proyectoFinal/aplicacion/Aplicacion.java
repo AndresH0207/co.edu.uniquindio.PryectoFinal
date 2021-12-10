@@ -24,8 +24,8 @@ public class Aplicacion  extends Application {
     @Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;
-		mostrarVentanaLogin();
-		//mostrarVentanaPrincipal(TipoUsuario.ADMINISTRADOR,"MAYCOL");
+		//mostrarVentanaLogin();
+		mostrarVentanaPrincipal(TipoUsuario.ADMINISTRADOR,"MAYCOL");
 	}
 	
 	public static void main(String[] args) {

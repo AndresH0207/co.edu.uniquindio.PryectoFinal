@@ -1,2 +1,2 @@
-Juan,null,null,null
-cam,hena,123,sfd
+src/co/edu/uniquindio/proyectoFinal/resources/ArchivoVendedores.txtJuan#osorio#null#calle 12 # 11-91#vendedor#null
+fgh#cvb#cvb#cvb#vb#vb
