@@ -17,12 +17,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Aplicacion  extends Application {
 	
 	public Stage primaryStage;
-    private Marketplace marketplace =new Marketplace ("001"); //
+	private Marketplace marketplace = new Marketplace(); //
 	private ModelFactoryController modelFactoryController = ModelFactoryController.getInstance();
 
 

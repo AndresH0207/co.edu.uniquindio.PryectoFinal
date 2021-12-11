@@ -22,7 +22,7 @@ public class GestionBuscarProductosController {
 	private Persistencia p = new Persistencia();
 	private Aplicacion aplicacion;
 //	ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
-	Marketplace Mk = new Marketplace("001");
+	Marketplace Mk = new Marketplace();
 //	ObservableList<Producto> listaProductos = FXCollections.observableArrayList();
 
 	ArrayList<Producto> listaProductos = new ArrayList<>();

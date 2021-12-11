@@ -24,6 +24,7 @@ public class GestionGeneralController {
 	private GestionBuscarProductosController	 gestionBuscarProductosController;
 	private GestionBuscarProductosRedController  gestionBuscarProductosRedController;
 	private RedVendedoresController 			 redVendedoresController;
+	private GestionCantidadProductosController	 gestionCantidadProductosController;
 
 	@FXML
 	private AnchorPane anchorPane;
@@ -141,36 +142,6 @@ public class GestionGeneralController {
 
 	}
 
-//	public void ocultarBotones(TipoUsuario tipoUsuario) {
-//		if (tipoUsuario == TipoUsuario.ADMINISTRADOR) {
-//			btnProductosEnRed.setVisible(false);
-//			btnAddProductos.setVisible(false);
-//			btnMisProductos.setVisible(false);
-//			btnChats.setVisible(false);
-//			btnVideo.setVisible(false);
-//			btnRed.setVisible(true);
-//			btnAddVendedor.setVisible(true);
-//			btnCantMsjs.setVisible(true);
-//			btnCantProductos.setVisible(true);
-//			btnTopProductos.setVisible(true);
-//			btnProductosporVen.setVisible(true);
-//
-//		} else if (tipoUsuario == TipoUsuario.VENDEDOR) {
-//			btnRed.setVisible(false);
-//			btnAddVendedor.setVisible(false);
-//			btnCantMsjs.setVisible(false);
-//			btnCantProductos.setVisible(false);
-//			btnTopProductos.setVisible(false);
-//			btnProductosporVen.setVisible(false);
-//			btnProductosEnRed.setVisible(true);
-//			btnAddProductos.setVisible(true);
-//			btnMisProductos.setVisible(true);
-//			btnChats.setVisible(true);
-//			btnVideo.setVisible(true);
-//		}
-//
-//	}
-
 	/**
 	 * M�todo que permite mostrar la imagen asociada al tipo de usuario
 	 * 
@@ -230,13 +201,13 @@ public class GestionGeneralController {
 //				this.gestionProductosController = loader.getController();
 //				this.gestionProductosController.setAplicacion(this.aplicacion);
 //				break;
-//			case CANTIDAD_PRODUCTOS:
-//				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
-//				vistaCargada = loader.load();
-//				anchorPane.getChildren().setAll(vistaCargada);
-//				this.gestionProductosController = loader.getController();
-//				this.gestionProductosController.setAplicacion(this.aplicacion);
-//				break;
+			case CANTIDAD_PRODUCTOS:
+				loader.setLocation(getClass().getResource("../views/CantidadProductosView.fxml"));
+				vistaCargada = loader.load();
+				anchorPane.getChildren().setAll(vistaCargada);
+				this.gestionCantidadProductosController = loader.getController();
+				this.gestionCantidadProductosController.setAplicacion(this.aplicacion);
+				break;
 //			case TOP_TEN:
 //				loader.setLocation(getClass().getResource("../view/GestionEstudiantesView.fxml"));
 //				vistaCargada = loader.load();

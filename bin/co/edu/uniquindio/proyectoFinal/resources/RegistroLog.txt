@@ -1,84 +1,22 @@
-nov. 25, 2021 8:42:39 P. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+dic. 10, 2021 11:51:10 P. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 05, 2021 2:50:45 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+dic. 10, 2021 11:59:23 P. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 05, 2021 2:51:42 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic. 05, 2021 4:49:28 P. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 5:29:32 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
-dic 08, 2021 5:37:25 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 5:37:35 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 6:12:17 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 6:16:37 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 6:19:45 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 6:19:52 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
-dic 08, 2021 6:21:00 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 6:36:08 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 8:32:29 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 8:32:37 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
-dic 08, 2021 8:32:54 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 8:34:48 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+dic. 11, 2021 12:12:07 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Actualizar vendedor,Vendedor actulizado,
-dic 08, 2021 8:37:13 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+dic. 11, 2021 12:12:27 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Actualizar vendedor,Vendedor actulizado,
-dic 08, 2021 9:09:33 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+dic. 11, 2021 12:15:38 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-dic 08, 2021 9:11:26 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+dic. 11, 2021 12:19:29 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
+dic. 11, 2021 12:19:37 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
+dic. 11, 2021 12:19:43 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
+dic. 11, 2021 12:19:50 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
+dic. 11, 2021 12:19:56 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
+INFORMACIÓN: Eliminar vendedor,Vendedor eliminado,
+dic. 11, 2021 12:25:05 A. M. co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
 INFORMACIÓN: Crear Vendedor,Vendedor Creado,
-Dec 09, 2021 10:26:47 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 09, 2021 10:26:54 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Actualizar Producto,Producto actulizado,
-Dec 09, 2021 10:36:53 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 09, 2021 10:37:59 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Actualizar Producto,Producto actulizado,
-Dec 09, 2021 11:51:52 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 09, 2021 11:52:31 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 12:55:38 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 12:59:41 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 12:59:50 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:03:43 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:03:49 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:16:25 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:16:30 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:19:18 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:19:25 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:25:37 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:25:45 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 1:57:20 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,
-Dec 10, 2021 2:20:27 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Vendedor,Vendedor Creado,
-Dec 10, 2021 2:25:04 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Vendedor,Vendedor Creado,
-Dec 10, 2021 4:21:48 AM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Vendedor,Vendedor Creado,
-Dec 10, 2021 5:47:59 PM co.edu.uniquindio.proyectoFinal.persistencia.ArchivoUtil guardarRegistroLog
-INFO: Crear Producto,Producto Creado,

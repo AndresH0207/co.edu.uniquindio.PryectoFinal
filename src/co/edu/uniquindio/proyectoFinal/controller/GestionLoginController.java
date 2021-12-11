@@ -74,6 +74,7 @@ public class GestionLoginController {
 	}
 
 	private void ingresarLogin() {
+		
 
 		String usuario = txtUsuarioLogin.getText();
 		String contrasenia = txtContraseniaLogin.getText();

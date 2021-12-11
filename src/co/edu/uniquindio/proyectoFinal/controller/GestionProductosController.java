@@ -102,8 +102,7 @@ public class GestionProductosController implements Initializable {
 	}
 
 	@FXML
-	void agregarAction(ActionEvent event) {
-
+	void addAction(ActionEvent event) {
 		agregarImagen();
 	}
 
@@ -113,16 +112,13 @@ public class GestionProductosController implements Initializable {
 		fileChooser.setTitle("Buscar Imagen");
 
 		// Agregar filtros para facilitar la busqueda
-		fileChooser.getExtensionFilters().addAll(
-				new FileChooser.ExtensionFilter("All Images", "*.*"),
-				new FileChooser.ExtensionFilter("JPG", ".jpg"), 
-				new FileChooser.ExtensionFilter("PNG", ".png"),
+		fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("All Images", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", ".jpg"), new FileChooser.ExtensionFilter("PNG", ".png"),
 				new FileChooser.ExtensionFilter("Text Files", "*.txt"),
-				new FileChooser.ExtensionFilter("HTML Files", "*.htm")
-				);
+				new FileChooser.ExtensionFilter("HTML Files", "*.htm"));
 
 		// Obtener la imagen seleccionada
-		File imgFile = fileChooser.showOpenDialog(( aplicacion).getPrimaryStage());
+		File imgFile = fileChooser.showOpenDialog((aplicacion).getPrimaryStage());
 
 		// Mostar la imagen
 		if (imgFile != null) {

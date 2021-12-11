@@ -8,37 +8,27 @@ import co.edu.uniquindio.proyectoFinal.persistencia.Persistencia;
 
 public class Marketplace {
 
-	String codigo;
 	private ArrayList<Vendedor> listaVendedores = new ArrayList<Vendedor>();
 	private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
-	private Administrador administrador;
+	private ArrayList<Administrador> listaAdministradores = new ArrayList<Administrador>();
 
 	/**
 	 * Constructor de la clase
 	 * 
 	 * @param codigo
 	 */
-	public Marketplace(String codigo) {
-		this.codigo = codigo;
+	public Marketplace() {
 		listaVendedores = new ArrayList<Vendedor>();
 		listaProductos = new ArrayList<Producto>();
-		inicializarDatos();
+		listaAdministradores = new ArrayList<Administrador>();
 	}
 
-	/**
-	 * Metodo que me permite obtener el codigo
-	 */
-	public String getCodigo() {
-		return codigo;
+	public ArrayList<Administrador> getListaAdministradores() {
+		return listaAdministradores;
 	}
 
-	/**
-	 * Metodo que me permite asignar y/o actualizar el codigo de la clase
-	 * 
-	 * @param codigo
-	 */
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+	public void setListaAdministradores(ArrayList<Administrador> listaAdministradores) {
+		this.listaAdministradores = listaAdministradores;
 	}
 
 	/**
@@ -80,10 +70,6 @@ public class Marketplace {
 	/**
 	 * M�todo que permite inicializar los datos
 	 */
-	private void inicializarDatos() {
-		administrador = (Administrador) Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_ADMINISTRADOR_XML);
-		listaVendedores.add((Vendedor) Persistencia.cargarDatosXML(Persistencia.RUTA_ARCHIVO_VENDEDOR_XML));
-	}
 
 	public Vendedor crearVendedor(String nombre, String apellido, String cedula, String direccion, String usuario,
 			String contrasenia) {
@@ -94,7 +80,8 @@ public class Marketplace {
 		vendedor.setCedula(cedula);
 		vendedor.setDireccion(direccion);
 		vendedor.setUsuario(usuario);
-		vendedor.setCotrasenia(contrasenia);
+		System.out.println(contrasenia);
+		vendedor.setContrasena(contrasenia);
 
 		getListaVendedores().add(vendedor);
 		return vendedor;
@@ -160,26 +147,27 @@ public class Marketplace {
 
 		return productos;
 	}
-	
-	
 
 	public Usuario ingresar(String Nomusuario, String contrasenia, TipoUsuario tipoUsuario) {
 		Usuario usuario = null;
-		Vendedor vendedor = null;
 
 		switch (tipoUsuario) {
 		case VENDEDOR:
-			vendedor = listaVendedores.stream()
-					.filter(x -> x.getUsuario().equals(Nomusuario) && x.getContrasena().equals(contrasenia)).findAny()
-					.orElse(null);
-
-			if (vendedor != null)
-				usuario = vendedor;
+			for (Vendedor vendedor : listaVendedores) {
+				if (vendedor.getUsuario().equals(Nomusuario) && vendedor.getContrasena().equals(contrasenia)) {
+					usuario = vendedor;
+				}
+			}
 
 			break;
 		case ADMINISTRADOR:
-			if (administrador.getUsuario().equals(Nomusuario) && administrador.getContrasena().equals(contrasenia))
-				usuario = administrador;
+			for (Administrador administrador : listaAdministradores) {
+				if (administrador.getUsuario().equals(Nomusuario)
+						&& administrador.getContrasena().equals(contrasenia)) {
+					return administrador;
+				}
+				return usuario = administrador;
+			}
 			break;
 		default:
 			break;
@@ -226,5 +214,12 @@ public class Marketplace {
 		if (producto != null) {
 			getListaProductos().remove(producto);
 		}
+	}
+
+	public int obtenerCantidadProductos() {
+		int cantidades = 0;
+		cantidades = listaProductos.size();
+		return cantidades;
+
 	}
 }

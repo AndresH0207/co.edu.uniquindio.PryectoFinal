@@ -12,13 +12,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="560.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionVendedoresController">
+<AnchorPane prefHeight="560.0" prefWidth="760.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.proyectoFinal.controller.GestionVendedoresController">
    <children>
       <SplitPane layoutX="9.0" layoutY="34.0" orientation="VERTICAL" prefHeight="521.0" prefWidth="738.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="497.0" prefWidth="736.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="509.0" prefWidth="735.0">
                <children>
-                  <Separator layoutX="65.0" layoutY="28.0" prefHeight="3.0" prefWidth="607.0" style="-fx-background-color: #853daf;" />
+                  <Separator layoutX="65.0" layoutY="32.0" prefHeight="3.0" prefWidth="607.0" style="-fx-background-color: #853daf;" />
                   <Label layoutX="71.0" layoutY="53.0" text="Nombres:">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
@@ -27,7 +27,7 @@
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font></Label>
-                  <Button fx:id="btnAgregarVendedor" layoutX="247.0" layoutY="208.0" mnemonicParsing="false" onAction="#AgregarVendedor" prefHeight="37.0" prefWidth="125.0" text="Agregar">
+                  <Button fx:id="btnAgregarVendedor" layoutX="227.0" layoutY="204.0" mnemonicParsing="false" onAction="#AgregarVendedor" prefHeight="37.0" prefWidth="125.0" text="Agregar">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
@@ -38,7 +38,7 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="btnActualizarVendedores" layoutX="419.0" layoutY="208.0" mnemonicParsing="false" onAction="#ActualizarVendedor" prefHeight="37.0" prefWidth="125.0" text="Actualizar">
+                  <Button fx:id="btnActualizarVendedores" layoutX="421.0" layoutY="203.0" mnemonicParsing="false" onAction="#ActualizarVendedor" prefHeight="37.0" prefWidth="125.0" text="Actualizar">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
@@ -49,8 +49,8 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <TextField fx:id="txtNombreVendedor" layoutX="182.0" layoutY="51.0" prefHeight="25.0" prefWidth="465.0" />
-                  <TextField fx:id="txtApellidosVendedor" layoutX="181.0" layoutY="87.0" prefHeight="25.0" prefWidth="465.0" />
+                  <TextField fx:id="txtNombreVendedor" layoutX="182.0" layoutY="51.0" prefHeight="25.0" prefWidth="156.0" />
+                  <TextField fx:id="txtApellidosVendedor" layoutX="181.0" layoutY="87.0" prefHeight="25.0" prefWidth="156.0" />
                   <Label layoutX="258.0" layoutY="2.0" text="Informacion del vendedor" textFill="#853daf">
                      <font>
                         <Font name="Comic Sans MS" size="18.0" />
@@ -86,21 +86,21 @@
                         <TableColumn fx:id="columDireccionVendedor" prefWidth="142.6666717529297" text="Direccion" />
                     </columns>
                   </TableView>
-                  <Separator layoutX="69.0" layoutY="291.0" prefHeight="0.0" prefWidth="607.0" style="-fx-background-color: #853daf;" />
+                  <Separator layoutX="65.0" layoutY="291.0" prefHeight="0.0" prefWidth="607.0" style="-fx-background-color: #853daf;" />
                   <Separator layoutX="65.0" layoutY="252.0" prefHeight="3.0" prefWidth="607.0" style="-fx-background-color: #853daf;" />
                   <Label layoutX="278.0" layoutY="260.0" text="Listado de vendedores">
                      <font>
                         <Font name="Comic Sans MS" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtContraseniaVendedor" layoutX="491.0" layoutY="156.0" prefHeight="25.0" prefWidth="156.0" />
-                  <TextField fx:id="txtUsuarioVendedor" layoutX="491.0" layoutY="122.0" prefHeight="25.0" prefWidth="156.0" />
-                  <Label layoutX="396.0" layoutY="158.0" text="Contraseña:">
+                  <TextField fx:id="txtContraseniaVendedor" layoutX="481.0" layoutY="121.0" prefHeight="25.0" prefWidth="156.0" />
+                  <TextField fx:id="txtUsuarioVendedor" layoutX="481.0" layoutY="87.0" prefHeight="25.0" prefWidth="156.0" />
+                  <Label layoutX="386.0" layoutY="123.0" text="Contraseña:">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="419.0" layoutY="124.0" text="Usuario:">
+                  <Label layoutX="409.0" layoutY="89.0" text="Usuario:">
                      <font>
                         <Font name="Comic Sans MS" size="14.0" />
                      </font>

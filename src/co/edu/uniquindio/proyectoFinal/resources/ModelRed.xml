@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17" class="java.beans.XMLDecoder">
+ <object class="co.edu.uniquindio.proyectoFinal.model.Marketplace" id="Marketplace0">
+  <void property="listaAdministradores">
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectoFinal.model.Administrador">
+     <void property="contrasena">
+      <string>1234</string>
+     </void>
+     <void property="documento">
+      <string>123</string>
+     </void>
+     <void property="nombre">
+      <string>Andres Henao</string>
+     </void>
+     <void property="usuario">
+      <string>admin</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaProductos">
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectoFinal.model.Producto">
+     <void property="categoria">
+      <string>aaa</string>
+     </void>
+     <void property="nombre">
+      <string>aaaa</string>
+     </void>
+     <void property="precio">
+      <double>23432.0</double>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectoFinal.model.Producto">
+     <void property="categoria">
+      <string>erter</string>
+     </void>
+     <void property="nombre">
+      <string>erter</string>
+     </void>
+     <void property="precio">
+      <double>23432.0</double>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectoFinal.model.Producto">
+     <void property="categoria">
+      <string>computador</string>
+     </void>
+     <void property="nombre">
+      <string>mac</string>
+     </void>
+     <void property="precio">
+      <double>2333.0</double>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectoFinal.model.Producto">
+     <void property="categoria">
+      <string>uuu</string>
+     </void>
+     <void property="nombre">
+      <string>arroz</string>
+     </void>
+     <void property="precio">
+      <double>4567.0</double>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="listaVendedores">
+   <void method="add">
+    <object class="co.edu.uniquindio.proyectoFinal.model.Vendedor">
+     <void property="apellidos">
+      <string>rs</string>
+     </void>
+     <void property="cedula">
+      <string>23</string>
+     </void>
+     <void property="contrasena">
+      <string>123</string>
+     </void>
+     <void property="direccion">
+      <string>yghsd</string>
+     </void>
+     <void property="nombre">
+      <string>pedro</string>
+     </void>
+     <void property="usuario">
+      <string>sa</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

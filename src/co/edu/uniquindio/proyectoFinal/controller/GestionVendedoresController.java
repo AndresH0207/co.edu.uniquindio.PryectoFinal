@@ -106,7 +106,7 @@ public class GestionVendedoresController implements javafx.fxml.Initializable{
 			txtCedulaVendedor.setText	  (vendedor.getCedula());
 			txtDireccionVendedor.setText  (vendedor.getDireccion());
 			txtUsuarioVendedor.setText	  (vendedor.getUsuario());
-			txtContraseniaVendedor.setText(vendedor.getContrasenia());
+			txtContraseniaVendedor.setText(vendedor.getContrasena());
 		}else{
 			JOptionPane.showMessageDialog(null, "Error");
 		}

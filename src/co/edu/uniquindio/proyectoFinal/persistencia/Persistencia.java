@@ -2,6 +2,7 @@ package co.edu.uniquindio.proyectoFinal.persistencia;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
 import co.edu.uniquindio.proyectoFinal.model.Estado;
 import co.edu.uniquindio.proyectoFinal.model.Marketplace;
 import co.edu.uniquindio.proyectoFinal.model.Producto;
@@ -15,37 +16,7 @@ public class Persistencia {
 	public static final String RUTA_ARCHIVO_LOG = "src/co/edu/uniquindio/proyectoFinal/resources/RegistroLog.txt";
 	public static final String RUTA_ARCHIVO_ADMINISTRADOR_XML = "src/co/edu/uniquindio/proyectoFinal/resources/ModelAdministrador.xml";
 	public static final String RUTA_ARCHIVO_VENDEDOR_XML = "src/co/edu/uniquindio/proyectoFinal/resources/ModelVendedor.xml";
-
-//	public static void cargarDatosArchivo(Marketplace marketplace) throws FileNotFoundException, IOException {
-//		ArrayList<Vendedor> vendedoresCargados = cargarVendedores();
-//		if (vendedoresCargados.size() > 0) {
-//			marketplace.getListaVendedores().addAll(vendedoresCargados);
-//		}
-//	}
-//
-//	private static ArrayList<Vendedor> cargarVendedores() throws FileNotFoundException, IOException {
-//		ArrayList<Vendedor> listaVendedores = new ArrayList<Vendedor>();
-//
-//		ArrayList<String> contenido = ArchivoUtil.leerArchivo(RUTA_ARCHIVO_VENDEDOR);
-//
-//		String linea = "";
-//
-//		for (int i = 0; i < contenido.size(); i++) {
-//			linea = contenido.get(i);
-//			Vendedor vendedor = new Vendedor();
-//			vendedor.setNombre(linea.split("#")[0]);
-//			vendedor.setApellidos(linea.split("#")[1]);
-//			vendedor.setCedula(linea.split("#")[2]);
-//			vendedor.setDireccion(linea.split("#")[3]);
-//			vendedor.setUsuario(linea.split("#")[4]);
-//			vendedor.setCotrasenia(linea.split("#")[5]);
-//
-//			listaVendedores.add(vendedor);
-//
-//		}
-//		return listaVendedores;
-//	}
-
+	public static final String RUTA_MODEL_REDSOCIAL_XML = "src/co/edu/uniquindio/proyectoFinal/resources/ModelRed.xml";
 	public static void guardarRegistroLog(String mensajeLog, int nivel, String accion) {
 		ArchivoUtil.guardarRegistroLog(mensajeLog, nivel, accion, RUTA_ARCHIVO_LOG);
 
@@ -56,7 +27,7 @@ public class Persistencia {
 		String contenido = "";
 		for (Vendedor vendedor : marketplace.getListaVendedores()) {
 			contenido += vendedor.getNombre() + "#" + vendedor.getApellidos() + "#" + vendedor.getCedula() + "#"
-					+ vendedor.getDireccion() + "#" + vendedor.getUsuario() + "#" + vendedor.getContrasenia() + "\n";
+					+ vendedor.getDireccion() + "#" + vendedor.getUsuario() + "#" + vendedor.getContrasena() + "\n";
 		}
 		try {
 			ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDORES, contenido, false);
@@ -95,7 +66,7 @@ public class Persistencia {
 			vendedor.setCedula	  (linea.split("#")[2]);
 			vendedor.setDireccion (linea.split("#")[3]);
 			vendedor.setUsuario	  (linea.split("#")[4]);
-			vendedor.setCotrasenia(linea.split("#")[5]);
+			vendedor.setContrasena(linea.split("#")[5]);
 
 
 			listaVendedores.add(vendedor);
@@ -139,19 +110,6 @@ public class Persistencia {
 		return listaProductos;
 	}
 
-//	public static void guardarContactos(Marketplace marketplace) {
-//		String contenido = "";
-//		for (Vendedor vendedor : marketplace.getListaVendedores()) {
-//			contenido += vendedor.getNombre() + "#" + vendedor.getApellidos() + "#" + vendedor.getCedula() + "#"
-//					+ vendedor.getDireccion() + "#" + vendedor.getUsuario() + "#" + vendedor.getContrasenia() + "\n";
-//		}
-//		try {
-//			ArchivoUtil.guardarArchivo(RUTA_ARCHIVO_VENDEDOR, contenido, false);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
 
 	public static void guardarProductos(Marketplace marketplace) {
 
@@ -168,39 +126,25 @@ public class Persistencia {
 		}
 	}
 
-	// SERIALIZACI�N y XML
+	// SERIALIZACION y XML
 
-	/**
-	 * M�todo que permetie cargar datos desde un XML
-	 * 
-	 * @param rutaArchivo
-	 * @return
-	 */
-	public static Object cargarDatosXML(String rutaArchivo) {
-		Object obj = null;
-
+	
+	public static Marketplace cargarRecursoXML() {
+		Object object = null;
+		Marketplace marketplace = null;
 		try {
-			obj = ArchivoUtil.cargarRecursoSerializadoXML(rutaArchivo);
+			object = ArchivoUtil.cargarRecursoSerializadoXML(RUTA_MODEL_REDSOCIAL_XML);
+			marketplace = (Marketplace) object;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return obj;
-
+		return marketplace;
 	}
 
-	/**
-	 * M�todo que permite guardar los datos a un XML
-	 * 
-	 * @param object
-	 * @param rutaArchivo
-	 */
-	public static void guardarDatosXML(String rutaArchivo, String object) {
-
+	public static void guardarRecursoXML(Marketplace marketplace) {
 		try {
-			ArchivoUtil.salvarRecursoSerializadoXML(rutaArchivo, object);
+			ArchivoUtil.salvarRecursoSerializadoXML(RUTA_MODEL_REDSOCIAL_XML, marketplace);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
