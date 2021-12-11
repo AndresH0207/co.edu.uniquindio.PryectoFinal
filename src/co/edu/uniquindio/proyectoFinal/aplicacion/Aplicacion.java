@@ -102,6 +102,14 @@ public class Aplicacion  extends Application {
 	
 	
 	
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+
 	/**
 	 * M�todo que permite ingresar a la aplicaci�n//////////
 	 * @param usuario

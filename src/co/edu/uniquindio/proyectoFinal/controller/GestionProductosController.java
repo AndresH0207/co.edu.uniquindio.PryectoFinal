@@ -1,5 +1,6 @@
 package co.edu.uniquindio.proyectoFinal.controller;
 
+import java.io.File;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -26,6 +27,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
 public class GestionProductosController implements Initializable {
 
@@ -54,6 +58,15 @@ public class GestionProductosController implements Initializable {
 
 	@FXML
 	private Button btnEliminarProducto;
+
+	@FXML
+	private ImageView imagenProducto;
+
+	@FXML
+	private Button addImagen;
+
+	@FXML
+	private TextField txtRutaImagen;
 
 	@FXML
 	private TableView<Producto> tableViewListaProductos;
@@ -88,21 +101,56 @@ public class GestionProductosController implements Initializable {
 		eliminarProducto();
 	}
 
+	@FXML
+	void agregarAction(ActionEvent event) {
+
+		agregarImagen();
+	}
+
+	private void agregarImagen() {
+
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Buscar Imagen");
+
+		// Agregar filtros para facilitar la busqueda
+		fileChooser.getExtensionFilters().addAll(
+				new FileChooser.ExtensionFilter("All Images", "*.*"),
+				new FileChooser.ExtensionFilter("JPG", ".jpg"), 
+				new FileChooser.ExtensionFilter("PNG", ".png"),
+				new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+				new FileChooser.ExtensionFilter("HTML Files", "*.htm")
+				);
+
+		// Obtener la imagen seleccionada
+		File imgFile = fileChooser.showOpenDialog(( aplicacion).getPrimaryStage());
+
+		// Mostar la imagen
+		if (imgFile != null) {
+			Image image = new Image("file:" + imgFile.getAbsolutePath());
+			imagenProducto.setImage(image);
+			txtRutaImagen.setText(imgFile.getAbsolutePath());
+
+		}
+
+	}
+
 	private void agregarProducto() throws AgregarException {
 
 		System.out.println(listaProductos + "isis");
 
 		String nombre;
+		String imagen;
 		String categoria;
 		double precio;
 		Estado estado;
 
 		nombre = txtNombreProducto.getText();
+		imagen = txtRutaImagen.getText();
 		categoria = txtCategoriaProductos.getText();
 		precio = Double.parseDouble(txtPrecioProductos.getText());
 		estado = (Estado) comboEstadoProducto.getValue();
 
-		if (datosValidos(nombre, categoria, precio, estado)) {
+		if (datosValidos(nombre, imagen, categoria, precio, estado)) {
 
 			Producto productosNuevos = null;
 			productosNuevos = modelFactoryController.crearProducto(nombre, categoria, precio, estado);
@@ -124,11 +172,12 @@ public class GestionProductosController implements Initializable {
 	private void actualizarProducto() throws ActualizarException {
 
 		String nombre = txtNombreProducto.getText();
+		String imagen = txtRutaImagen.getText();
 		String categoria = txtCategoriaProductos.getText();
 		Double precio = Double.parseDouble(txtPrecioProductos.getText());
 		Estado estado = comboEstadoProducto.getValue();
 
-		if (datosValidos(nombre, categoria, precio, estado)) {
+		if (datosValidos(nombre, imagen, categoria, precio, estado)) {
 
 			if (selectProducto != null) {
 
@@ -199,10 +248,10 @@ public class GestionProductosController implements Initializable {
 
 		if (producto != null) {
 
-			txtNombreProducto.setText		(producto.getNombre());
-			txtCategoriaProductos.setText	(producto.getCategoria());
-			txtPrecioProductos.setText		(String.valueOf(producto.getPrecio()));
-			comboEstadoProducto.setValue	(producto.getEstado());
+			txtNombreProducto.setText(producto.getNombre());
+			txtCategoriaProductos.setText(producto.getCategoria());
+			txtPrecioProductos.setText(String.valueOf(producto.getPrecio()));
+			comboEstadoProducto.setValue(producto.getEstado());
 
 		} else {
 			JOptionPane.showMessageDialog(null, "Error");
@@ -222,7 +271,7 @@ public class GestionProductosController implements Initializable {
 		return false;
 	}
 
-	private boolean datosValidos(String nombre, String categoria, Double precio, Estado estado) {
+	private boolean datosValidos(String nombre, String imagen, String categoria, Double precio, Estado estado) {
 		String mensaje = "";
 
 		if (nombre == null || nombre.equals("")) {
